@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   flutter_native_splash: ^2.3.2
   intl: ^0.18.1
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -50,7 +51,8 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/splash_screen_images/
+    - assets/images/
+    - assets/images/onboard_screen_images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -75,13 +77,13 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_native_splash:
+  color: "#E5E5E5"
+  image: assets/images/splash_screen_images/appicon.png
+  branding: assets/images/splash_screen_images/branding.png
+  branding_mode: bottom
+  color_dark: "#181818"
+  fullscreen: true
+  android_12:
     color: "#E5E5E5"
-    image: assets/images/splash_screen_images/appicon.png
     branding: assets/images/splash_screen_images/branding.png
-    branding_mode: bottom
     color_dark: "#181818"
-    fullscreen: true 
-    android_12:
-      color: "#E5E5E5"
-      branding: assets/images/splash_screen_images/branding.png
-      color_dark: "#181818"
