@@ -10,9 +10,12 @@ class BookWorm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardView(),
+      theme: ThemeData(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
+      home: const OnBoardView(),
     );
   }
 }
