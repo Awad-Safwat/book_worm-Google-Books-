@@ -2,6 +2,7 @@ import 'package:book_worm/core/utils/helper.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ButtomSheetButton extends StatelessWidget {
@@ -26,12 +27,15 @@ class ButtomSheetButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {
+        onPressed: () async {
+          final prefs = await SharedPreferences.getInstance();
+          prefs.setBool('showHome', true);
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomeView(),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeView(),
+            ),
+          );
         },
         child: Center(
           child: Padding(
