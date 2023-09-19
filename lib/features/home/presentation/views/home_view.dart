@@ -1,4 +1,6 @@
+import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -7,7 +9,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.red,
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: Svg(AssetsData.homeBackgroundImage),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

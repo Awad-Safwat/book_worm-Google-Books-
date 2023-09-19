@@ -9,4 +9,8 @@ class AssetsData {
       'assets/images/onboard_screen_images/onboardImage2.png';
   static const String onBoardingImage3 =
       'assets/images/onboard_screen_images/onboardImage3.png';
+  static const String homeBackgroundImage =
+      'assets/images/home_page_view/background.svg';
+  static const String homeBackgroundImagePng =
+      'assets/images/home_page_view/background.png';
 }
