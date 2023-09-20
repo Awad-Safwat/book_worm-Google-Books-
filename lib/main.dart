@@ -22,9 +22,15 @@ class BookWorm extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'HKGrotesk',
         appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.transparent,
-            titleTextStyle: TextStyle(color: Colors.black),
-            iconTheme: IconThemeData(color: Colors.black)),
+          backgroundColor: Colors.transparent,
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontFamily: 'HKGrotesk',
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
       ),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
