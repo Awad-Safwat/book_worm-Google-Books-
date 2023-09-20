@@ -19,7 +19,7 @@ class BookWorm extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(fontFamily: 'HKGrotesk'),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
       home: showHome ? const HomeView() : const OnBoardView(),

@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/assets/assets.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
@@ -17,6 +18,7 @@ class HomeView extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        child: const HomeViewBody(),
       ),
     );
   }
