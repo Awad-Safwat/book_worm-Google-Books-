@@ -8,18 +8,8 @@ class BookImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 0,
-            color: Color.fromARGB(255, 231, 231, 231),
-          )
-        ],
-      ),
-      child: Image.asset(
-        AssetsData.bookTest,
-      ),
+    return Image.asset(
+      AssetsData.bookTest,
     );
   }
 }

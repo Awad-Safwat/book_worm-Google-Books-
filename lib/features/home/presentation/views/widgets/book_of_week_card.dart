@@ -25,7 +25,7 @@ class BookOfTheWeekCard extends StatelessWidget {
                 color: AppHelper.gitBritness(context) == Brightness.dark
                     ? AppHelper.shadowColordark
                     : AppHelper.shadowColorLight,
-                blurRadius: 20,
+                blurRadius: 10,
               )
             ]),
         height: screenSize.height * .20,
