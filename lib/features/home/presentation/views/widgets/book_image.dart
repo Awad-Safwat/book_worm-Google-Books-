@@ -12,8 +12,8 @@ class BookImage extends StatelessWidget {
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
-            blurRadius: 30,
-            color: Colors.grey,
+            blurRadius: 0,
+            color: Color.fromARGB(255, 231, 231, 231),
           )
         ],
       ),

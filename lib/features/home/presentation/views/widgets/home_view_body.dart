@@ -1,6 +1,7 @@
 import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_of_week_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,35 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        HomeViewAppBar(),
-        BookOfTheWeekCard(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const HomeViewAppBar(),
+          const BookOfTheWeekCard(),
+          const SizedBox(height: 35),
+          const Text(
+            'Recommanded for you',
+            style: Styels.textStyle20,
+          ),
+          const SizedBox(height: 20),
+          Container(
+            color: Colors.transparent,
+            height: 150,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (contxt, index) {
+                return const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 6.0),
+                  child: BookImage(),
+                );
+              },
+              itemCount: 10,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

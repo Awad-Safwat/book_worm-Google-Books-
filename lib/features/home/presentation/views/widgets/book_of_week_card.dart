@@ -12,7 +12,8 @@ class BookOfTheWeekCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Container(
         decoration: BoxDecoration(
             color: AppHelper.gitBritness(context) == Brightness.dark
