@@ -32,7 +32,14 @@ class BookWorm extends StatelessWidget {
           ),
         ),
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData.dark().copyWith(
+        textTheme: Typography().white.apply(fontFamily: 'HKGrotesk'),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'HKGrotesk',
+          ),
+        ),
+      ),
       themeMode: ThemeMode.system,
       home: showHome ? const HomeView() : const OnBoardView(),
     );
