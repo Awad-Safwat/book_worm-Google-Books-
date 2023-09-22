@@ -15,7 +15,7 @@ class PopularItemBody extends StatelessWidget {
     return Row(
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: BookImage(),
         ),
         Column(

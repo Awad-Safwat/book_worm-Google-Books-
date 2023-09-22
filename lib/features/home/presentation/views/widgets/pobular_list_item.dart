@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/core/utils/helper.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/popular_item_body.dart';
 import 'package:flutter/material.dart';
