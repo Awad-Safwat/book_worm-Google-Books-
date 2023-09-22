@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';

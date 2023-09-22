@@ -3,7 +3,6 @@ import 'package:book_worm/features/home/presentation/views/widgets/book_image.da
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PopularItemBody extends StatelessWidget {
   const PopularItemBody({
@@ -38,17 +37,9 @@ class PopularItemBody extends StatelessWidget {
             ),
             Row(
               children: [
-                const Icon(
-                  FontAwesomeIcons.star,
-                  size: 15,
-                  color: Colors.yellow,
-                ),
-                const SizedBox(
-                  width: 7,
-                ),
                 Text(
                   '5.0',
-                  style: Styels.textStyle8.copyWith(
+                  style: Styels.textStyle10.copyWith(
                     fontWeight: FontWeight.bold,
                     color: const Color(0xffF24F09),
                   ),

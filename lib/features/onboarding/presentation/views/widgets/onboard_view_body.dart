@@ -1,5 +1,4 @@
 import 'package:book_worm/core/utils/assets/assets.dart';
-import 'package:book_worm/features/onboarding/presentation/views/helper/helper.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboarding_cubit/on_boarding_cubit.dart';
 import 'package:book_worm/features/onboarding/presentation/views/widgets/onboard_page_body_itme.dart';
 import 'package:flutter/material.dart';
