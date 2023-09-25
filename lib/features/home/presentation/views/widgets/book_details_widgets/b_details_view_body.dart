@@ -77,7 +77,7 @@ class BookDetailsViewBody extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 10,
                 ),
               ],
             ),
@@ -86,34 +86,35 @@ class BookDetailsViewBody extends StatelessWidget {
             padding: EdgeInsets.only(
               left: screenSize.width * .10,
             ),
-            child: const Text(
-              'You may also like ..',
-              style: Styels.textStyle18,
-            ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: screenSize.width * .10,
-            ),
-            child: SizedBox(
-              height: 90,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (contxt, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).push(AppRouter.kBookDetailsView);
-                        },
-                        child: const BookImage()),
-                  );
-                },
-                itemCount: 10,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'You may also like ..',
+                  style: Styels.textStyle18,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (contxt, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context)
+                                  .push(AppRouter.kBookDetailsView);
+                            },
+                            child: const BookImage()),
+                      );
+                    },
+                    itemCount: 10,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
