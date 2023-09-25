@@ -3,6 +3,7 @@ import 'package:book_worm/features/home/presentation/views/widgets/book_image.da
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PopularItemBody extends StatelessWidget {
   const PopularItemBody({

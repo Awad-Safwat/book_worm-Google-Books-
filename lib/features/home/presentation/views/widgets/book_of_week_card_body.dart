@@ -1,3 +1,4 @@
+import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
@@ -16,14 +17,15 @@ class BookOfWeekCardBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: 20,
-        right: 10,
-        top: 20,
-        bottom: 20,
+        top: 10,
+        bottom: 10,
       ),
       child: Row(
         children: [
-          const BookImage(),
+          const Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: BookImage(),
+          ),
           const SizedBox(
             width: 25,
           ),
