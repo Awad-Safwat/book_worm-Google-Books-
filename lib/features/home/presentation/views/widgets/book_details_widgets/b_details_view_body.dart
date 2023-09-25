@@ -1,6 +1,6 @@
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/b_details_appbar.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -11,7 +11,7 @@ class BookDetailsViewBody extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 350,
+          height: screenSize.height * .38,
           width: screenSize.width,
           decoration: const BoxDecoration(
             color: Color(0xff171B36),
@@ -30,6 +30,15 @@ class BookDetailsViewBody extends StatelessWidget {
                 start: 10,
                 child: const BookDetailsViewAppBar(),
               ),
+              Positioned.directional(
+                textDirection: TextDirection.ltr,
+                height: screenSize.height * .18,
+                top: screenSize.height * .14,
+                start: screenSize.width * .11,
+                child: const SizedBox(
+                  child: SelectedBookCard(),
+                ),
+              )
             ],
           ),
         ),
