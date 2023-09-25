@@ -14,6 +14,10 @@ class HomeViewAppBar extends StatelessWidget {
       child: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: const Icon(
+          FontAwesomeIcons.bars,
+          size: 28,
+        ),
         title: const Text(
           'Book of the week',
           style: Styels.textStyle20, //copyWith(fontFamily: 'HKGrotesk'),
@@ -21,8 +25,8 @@ class HomeViewAppBar extends StatelessWidget {
         centerTitle: true,
         actions: const [
           Icon(
-            FontAwesomeIcons.bars,
-            size: 28,
+            FontAwesomeIcons.magnifyingGlass,
+            size: 25,
           ),
         ],
       ),

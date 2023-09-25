@@ -10,16 +10,16 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15.0),
-      child: Column(
-        children: [
-          const HomeViewAppBar(),
-          const BookOfTheWeekCard(),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                const SliverToBoxAdapter(
+    return Column(
+      children: [
+        const HomeViewAppBar(),
+        const BookOfTheWeekCard(),
+        Expanded(
+          child: CustomScrollView(
+            slivers: [
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -41,21 +41,21 @@ class HomeViewBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: 100,
-                    (context, index) => const Padding(
-                      padding: EdgeInsets.only(
-                          bottom: 5, top: 5, right: 20, left: 10),
-                      child: PobularListItem(),
-                    ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: 100,
+                  (context, index) => const Padding(
+                    padding:
+                        EdgeInsets.only(bottom: 5, top: 5, right: 20, left: 20),
+                    child: PobularListItem(),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
