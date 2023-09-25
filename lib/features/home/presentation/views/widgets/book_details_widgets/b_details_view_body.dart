@@ -1,10 +1,13 @@
+import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/author_data_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/b_details_appbar.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
@@ -52,7 +55,7 @@ class BookDetailsViewBody extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(
               right: screenSize.width * .10,
-              top: screenSize.height * 0.11,
+              top: screenSize.height * 0.10,
               left: screenSize.width * .10,
             ),
             child: const Column(
@@ -73,7 +76,44 @@ class BookDetailsViewBody extends StatelessWidget {
                   maxLines: 12,
                   overflow: TextOverflow.ellipsis,
                 ),
+                SizedBox(
+                  height: 15,
+                ),
               ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: screenSize.width * .10,
+            ),
+            child: const Text(
+              'You may also like ..',
+              style: Styels.textStyle18,
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: screenSize.width * .10,
+            ),
+            child: SizedBox(
+              height: 90,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (contxt, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: GestureDetector(
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                        },
+                        child: const BookImage()),
+                  );
+                },
+                itemCount: 10,
+              ),
             ),
           ),
         ],
