@@ -1,5 +1,6 @@
 import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/author_data_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/b_details_appbar.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class BookDetailsViewBody extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: screenSize.height * .28,
@@ -42,51 +44,35 @@ class BookDetailsViewBody extends StatelessWidget {
                   start: screenSize.width * .09,
                   top: screenSize.height * .23,
                   textDirection: TextDirection.ltr,
-                  child: Card(
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    shadowColor: Colors.grey,
-                    elevation: 6,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 8),
-                      child: Row(
-                        children: [
-                          const CircleAvatar(
-                            foregroundImage: AssetImage(AssetsData.personImage),
-                            radius: 25,
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Author',
-                                style: Styels.textStyle10
-                                    .copyWith(fontWeight: FontWeight.normal),
-                              ),
-                              const Text(
-                                'Morgan Housel',
-                                style: Styels.textStyle18,
-                              ),
-                              const Text(
-                                'Best Seller of New York Times',
-                                style: Styels.textStyle8,
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          IconButton(
-                              onPressed: () {}, icon: const Icon(Icons.star))
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: const AuthorDataCard(),
                 )
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: screenSize.width * .10,
+              top: screenSize.height * 0.11,
+              left: screenSize.width * .10,
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'About The Book',
+                  style: Styels.textStyle18,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "'The Psychology of Money' is an essential read for anyone interested in being better with money. Fast-paced and engaging, this book will help you refine your thoughts towards money. You can finish this book in a week, unlike other books that are too lengthy."
+                  "                                                                                                                                                                                                                       "
+                  "The most important emotions in relation to money are fear, guilt, shame and envy. It's worth spending some effort to become aware of the emotions that are especially tied to money for you because, without awareness, they will tend to override rational thinking and drive your actions.'",
+                  style: Styels.textStyle14,
+                  maxLines: 12,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
           ),

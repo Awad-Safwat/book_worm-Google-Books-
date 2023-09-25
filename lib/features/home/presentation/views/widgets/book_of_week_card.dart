@@ -14,7 +14,9 @@ class BookOfTheWeekCard extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.only(
-          right: screenSize.width * 0.06, left: screenSize.width * 0.06),
+          right: screenSize.width * 0.06,
+          left: screenSize.width * 0.06,
+          bottom: 10),
       child: Container(
         decoration: BoxDecoration(
             color: AppHelper.gitBritness(context) == Brightness.dark

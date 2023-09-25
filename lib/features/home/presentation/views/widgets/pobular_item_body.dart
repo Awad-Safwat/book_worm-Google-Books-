@@ -61,15 +61,14 @@ class PopularItemBody extends StatelessWidget {
         ),
         const Spacer(),
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: EdgeInsets.symmetric(
+            horizontal: 8,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GrabNowButton(),
-              SizedBox(
-                height: 2,
-              ),
-              LearnMoreButton()
+              LearnMoreButton(),
             ],
           ),
         ),
