@@ -16,4 +16,6 @@ class AssetsData {
   static const String homeBackgroundImageDarkTheme =
       'assets/images/home_page_view/HomeBackgroundDarkTheme.svg';
   static const String bookTest = 'assets/images/home_page_view/bookTest.png';
+  static const String personImage =
+      'assets/images/home_page_view/personImage.png';
 }
