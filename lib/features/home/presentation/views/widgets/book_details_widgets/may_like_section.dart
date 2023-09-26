@@ -26,10 +26,10 @@ class MayAlsoLikeSection extends StatelessWidget {
             style: Styels.textStyle18,
           ),
           const SizedBox(
-            height: 5,
+            height: 15,
           ),
           SizedBox(
-            height: 100,
+            height: 130,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (contxt, index) {

@@ -14,7 +14,6 @@ class AbouTheBookSection extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         right: screenSize.width * .10,
-        top: screenSize.height * 0.10,
         left: screenSize.width * .10,
       ),
       child: const Column(
@@ -32,7 +31,7 @@ class AbouTheBookSection extends StatelessWidget {
             "                                                                                                                                                                                                                       "
             "The most important emotions in relation to money are fear, guilt, shame and envy. It's worth spending some effort to become aware of the emotions that are especially tied to money for you because, without awareness, they will tend to override rational thinking and drive your actions.'",
             style: Styels.textStyle14,
-            maxLines: 12,
+            maxLines: 20,
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(
