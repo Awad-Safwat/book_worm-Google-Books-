@@ -1,6 +1,8 @@
+import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({
@@ -23,10 +25,15 @@ class HomeViewAppBar extends StatelessWidget {
           style: Styels.textStyle20, //copyWith(fontFamily: 'HKGrotesk'),
         ),
         centerTitle: true,
-        actions: const [
-          Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: 25,
+        actions: [
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSearchView);
+            },
+            icon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 25,
+            ),
           ),
         ],
       ),

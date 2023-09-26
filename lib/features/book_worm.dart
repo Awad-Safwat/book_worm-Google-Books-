@@ -21,6 +21,9 @@ class BookWorm extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.black,
+            ),
       ),
       darkTheme: ThemeData.dark().copyWith(
         textTheme: Typography().white.apply(fontFamily: 'HKGrotesk'),
@@ -29,6 +32,9 @@ class BookWorm extends StatelessWidget {
             fontFamily: 'HKGrotesk',
           ),
         ),
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: Colors.white,
+            ),
       ),
       themeMode: ThemeMode.system,
     );
