@@ -1,3 +1,4 @@
+import 'package:book_worm/core/utils/helper.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/author_data_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,9 @@ class BookWithAuthorSection extends StatelessWidget {
     return Container(
       height: screenSize.height * .28,
       width: screenSize.width,
-      decoration: const BoxDecoration(
-        color: Color(0xff171B36),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: AppHelper.darkColor,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(22),
           bottomRight: Radius.circular(22),
         ),
