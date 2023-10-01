@@ -12,3 +12,5 @@ class AppHelper {
     return MediaQuery.of(context).platformBrightness;
   }
 }
+
+const kFeatueredBox = 'featuredBox';
