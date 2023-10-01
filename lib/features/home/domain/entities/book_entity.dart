@@ -11,15 +11,15 @@ class BookEntity {
   final String bookDiscreption;
   final num price;
 
-  BookEntity({
-    required this.bookTitle,
-    required this.rating,
-    required this.numOfReviews,
-    required this.imageUrl,
-    required this.bookId,
-    required this.authorName,
-    required this.authorImage,
-    required this.bookDiscreption,
-    required this.price,
-  });
+  BookEntity(
+    this.bookTitle,
+    this.rating,
+    this.numOfReviews,
+    this.imageUrl,
+    this.bookId,
+    this.authorName,
+    this.authorImage,
+    this.bookDiscreption,
+    this.price,
+  );
 }
