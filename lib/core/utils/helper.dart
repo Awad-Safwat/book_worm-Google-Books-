@@ -13,4 +13,6 @@ class AppHelper {
   }
 }
 
-const kFeatueredBox = 'featuredBox';
+const kFeatueredBox = 'featured_Box';
+const kNewestBox = 'newest_Box';
+

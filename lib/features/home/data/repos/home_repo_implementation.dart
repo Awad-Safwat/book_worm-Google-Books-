@@ -4,6 +4,7 @@ import 'package:book_worm/features/home/data/data_sources/home_remote_data_sourc
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/domain/repos/home_view_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImple extends HomeViewRepo {
   final HomeLocalDataSourceImple localDataSource;
@@ -26,7 +27,10 @@ class HomeRepoImple extends HomeViewRepo {
 
       return right(books);
     } catch (e) {
-      return left(Faluer());
+      if (e is DioException) {
+        return left(ServerFalure.fromDioError(e));
+      }
+      return left(ServerFalure(massege: e.toString()));
     }
   }
 
@@ -42,7 +46,10 @@ class HomeRepoImple extends HomeViewRepo {
 
       return right(books);
     } catch (e) {
-      return left(Faluer());
+      if (e is DioException) {
+        return left(ServerFalure.fromDioError(e));
+      }
+      return left(ServerFalure(massege: e.toString()));
     }
   }
 }
