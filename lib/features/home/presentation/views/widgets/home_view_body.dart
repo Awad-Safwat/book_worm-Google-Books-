@@ -1,8 +1,11 @@
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_of_the_week_card_bloc_builder.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_of_week_card.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list_bloc_builder.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/pobular_list_item.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/recommanded_list.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/popular_list_items_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,14 +13,14 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const HomeViewAppBar(),
-        const BookOfTheWeekCard(),
+        HomeViewAppBar(),
+        BookOfTheWeekCardBlocBuilder(),
         Expanded(
           child: CustomScrollView(
             slivers: [
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.only(left: 15),
                   child: Column(
@@ -25,11 +28,11 @@ class HomeViewBody extends StatelessWidget {
                     children: [
                       SizedBox(height: 35),
                       Text(
-                        'Recommanded for you',
+                        'Featured Books',
                         style: Styels.textStyle20,
                       ),
                       SizedBox(height: 20),
-                      RecommandedList(),
+                      FeatueredBooksListBlocBuilder(),
                       SizedBox(height: 25),
                       Text(
                         'Popular books',
@@ -42,16 +45,7 @@ class HomeViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  childCount: 100,
-                  (context, index) => const Padding(
-                    padding:
-                        EdgeInsets.only(bottom: 5, top: 5, right: 20, left: 20),
-                    child: PobularListItem(),
-                  ),
-                ),
-              ),
+              PobularListItemsBlocBuilder(),
             ],
           ),
         ),

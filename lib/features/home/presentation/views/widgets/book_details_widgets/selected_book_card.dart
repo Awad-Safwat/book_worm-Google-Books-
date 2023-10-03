@@ -14,7 +14,9 @@ class SelectedBookCard extends StatelessWidget {
       children: [
         SizedBox(
             height: MediaQuery.of(context).size.height * .20,
-            child: const BookImage()),
+            child: const BookImage(
+              imageUrl: "",
+            )),
         const SizedBox(
           width: 25,
         ),

@@ -39,7 +39,9 @@ class MayAlsoLikeSection extends StatelessWidget {
                       onTap: () {
                         GoRouter.of(context).push(AppRouter.kBookDetailsView);
                       },
-                      child: const BookImage()),
+                      child: const BookImage(
+                        imageUrl: '',
+                      )),
                 );
               },
               itemCount: 10,

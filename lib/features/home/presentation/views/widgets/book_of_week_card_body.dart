@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
@@ -7,9 +8,10 @@ import 'package:flutter/material.dart';
 class BookOfWeekCardBody extends StatelessWidget {
   const BookOfWeekCardBody({
     super.key,
+    required this.book,
     required this.screenSize,
   });
-
+  final BookEntity book;
   final Size screenSize;
 
   @override
@@ -21,9 +23,17 @@ class BookOfWeekCardBody extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: BookImage(),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.17,
+                maxWidth: MediaQuery.sizeOf(context).width * 0.22,
+              ),
+              child: BookImage(
+                imageUrl: book.imageUrl!,
+              ),
+            ),
           ),
           const SizedBox(
             width: 25,
@@ -34,9 +44,9 @@ class BookOfWeekCardBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'The Psychology of Money',
+                  book.bookTitle!,
                   style: Styels.textStyle14.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.bold,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -44,9 +54,8 @@ class BookOfWeekCardBody extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  r"The psychology of money is the study of our behavior with money. Success with money isn't about knowledge,"
-                  "IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.",
+                Text(
+                  book.bookDiscreption ?? '',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 5,
                   style: Styels.textStyle8,

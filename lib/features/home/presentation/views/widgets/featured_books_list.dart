@@ -1,17 +1,19 @@
 import 'package:book_worm/core/utils/app_router.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class RecommandedList extends StatelessWidget {
-  const RecommandedList({
+class FeatueredBooksList extends StatelessWidget {
+  const FeatueredBooksList({
     super.key,
+    required this.books,
   });
-
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: MediaQuery.sizeOf(context).height * 0.16,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (contxt, index) {
@@ -21,10 +23,10 @@ class RecommandedList extends StatelessWidget {
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kBookDetailsView);
                 },
-                child: const BookImage()),
+                child: BookImage(imageUrl: books[index].imageUrl!)),
           );
         },
-        itemCount: 10,
+        itemCount: books.length,
       ),
     );
   }

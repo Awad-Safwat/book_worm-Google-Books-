@@ -27,14 +27,14 @@ class HomeView extends StatelessWidget {
               FetchFeatcheredBooksUseCase(
                 homeRepo: getIt.get<HomeRepoImple>(),
               ),
-            ),
+            )..fetchFeaturedBooks(),
           ),
           BlocProvider(
             create: (context) => NewestBooksCubit(
               FetchNewestBooksUseCase(
                 homeRepo: getIt.get<HomeRepoImple>(),
               ),
-            ),
+            )..fetchNewestBooks(),
           ),
         ],
         child: Container(

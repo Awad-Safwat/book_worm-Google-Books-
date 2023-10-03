@@ -43,7 +43,7 @@ class SearchViewBody extends StatelessWidget {
                         horizontal: 10,
                         vertical: 5,
                       ),
-                      child: PobularListItem(),
+                      child: Text('To do'),
                     ),
                   ),
                 ),

@@ -5,7 +5,7 @@ import 'package:hive/hive.dart';
 
 void saveBooksLocaly(
     {required List<BookEntity> extractedBooksList, required String boxName}) {
-  var box = Hive.box(kFeatueredBox);
+  var box = Hive.box<BookEntity>(kFeatueredBox);
   box.addAll(extractedBooksList);
 }
 

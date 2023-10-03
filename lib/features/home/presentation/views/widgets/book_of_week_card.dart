@@ -1,12 +1,15 @@
 import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_of_week_card_body.dart';
 import 'package:flutter/material.dart';
 
 class BookOfTheWeekCard extends StatelessWidget {
   const BookOfTheWeekCard({
     super.key,
+    required this.book,
   });
-
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -29,7 +32,7 @@ class BookOfTheWeekCard extends StatelessWidget {
                 blurRadius: 10,
               )
             ]),
-        child: BookOfWeekCardBody(screenSize: screenSize),
+        child: BookOfWeekCardBody(book: book, screenSize: screenSize),
       ),
     );
   }
