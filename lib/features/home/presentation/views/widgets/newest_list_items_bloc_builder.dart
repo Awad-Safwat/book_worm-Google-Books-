@@ -1,6 +1,7 @@
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/pobular_list_item.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_newest_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,14 +27,21 @@ class PobularListItemsBlocBuilder extends StatelessWidget {
               (context, index) => Padding(
                 padding: const EdgeInsets.only(
                     bottom: 5, top: 5, right: 20, left: 20),
-                child: PobularListItem(
+                child: NewestListItem(
                   book: state.books[index],
                 ),
               ),
             ),
           );
         } else {
-          return const SliverToBoxAdapter(child: CircularProgressIndicator());
+          return SliverToBoxAdapter(
+            child: ListView.builder(
+              itemCount: 10,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) => const ShimmerNewestListItem(),
+            ),
+          );
         }
       },
     );

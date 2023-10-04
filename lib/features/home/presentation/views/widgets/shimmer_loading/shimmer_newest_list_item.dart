@@ -1,22 +1,17 @@
 import 'package:book_worm/core/utils/helper.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/book_of_week_card_body.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item_body.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_newest_list_item_body.dart';
 import 'package:flutter/material.dart';
 
-class BookOfTheWeekCard extends StatelessWidget {
-  const BookOfTheWeekCard({
+class ShimmerNewestListItem extends StatelessWidget {
+  const ShimmerNewestListItem({
     super.key,
-    required this.book,
   });
-  final BookEntity book;
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(
-          right: screenSize.width * 0.06,
-          left: screenSize.width * 0.06,
-          bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Container(
         decoration: BoxDecoration(
             color: AppHelper.gitBritness(context) == Brightness.dark
@@ -28,10 +23,14 @@ class BookOfTheWeekCard extends StatelessWidget {
                 color: AppHelper.gitBritness(context) == Brightness.dark
                     ? AppHelper.shadowColordark
                     : AppHelper.shadowColorLight,
-                blurRadius: 10,
+                blurRadius: 3,
               )
             ]),
-        child: BookOfWeekCardBody(book: book, screenSize: screenSize),
+        height: MediaQuery.of(context).size.height * .13,
+        width: MediaQuery.of(context).size.width * .90,
+        child: ShimmerNewstListItemBody(
+          screenSize: MediaQuery.sizeOf(context),
+        ),
       ),
     );
   }

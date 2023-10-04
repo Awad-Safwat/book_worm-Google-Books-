@@ -1,11 +1,8 @@
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_of_the_week_card_bloc_builder.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/book_of_week_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list_bloc_builder.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/pobular_list_item.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/popular_list_items_bloc_builder.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/newest_list_items_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -35,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
                       FeatueredBooksListBlocBuilder(),
                       SizedBox(height: 25),
                       Text(
-                        'Popular books',
+                        'Newest Books',
                         style: Styels.textStyle20,
                       ),
                       SizedBox(

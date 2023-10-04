@@ -21,7 +21,7 @@ class ServerFalure extends Faluer {
         return ServerFalure(massege: ' badcertificate error with the server');
       case DioExceptionType.badResponse:
         return ServerFalure.fromBadResponse(
-            responseBody: e.response!.data,
+            responseBody: e.response!.statusMessage!,
             responseStatuseCode: e.response!.statusCode);
       case DioExceptionType.cancel:
         return ServerFalure(massege: 'the request is cancelled');
@@ -33,7 +33,7 @@ class ServerFalure extends Faluer {
   }
 
   factory ServerFalure.fromBadResponse(
-      {required Response responseBody, required int? responseStatuseCode}) {
+      {required String responseBody, required int? responseStatuseCode}) {
     if (responseStatuseCode! >= 500) {
       return ServerFalure(massege: 'there is an error from server side');
     } else if (responseStatuseCode >= 400) {

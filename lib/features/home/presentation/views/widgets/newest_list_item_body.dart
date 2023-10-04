@@ -7,8 +7,8 @@ import 'package:book_worm/features/home/presentation/views/widgets/learn_more_bu
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class PopularItemBody extends StatelessWidget {
-  const PopularItemBody({
+class NewstListItemBody extends StatelessWidget {
+  const NewstListItemBody({
     super.key,
     required this.book,
   });

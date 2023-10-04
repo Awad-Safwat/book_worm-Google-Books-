@@ -1,5 +1,6 @@
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_featured_books_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,8 @@ class FeatueredBooksListBlocBuilder extends StatelessWidget {
             books: state.books,
           );
         } else {
-          return const CircularProgressIndicator();
+          return ShimmerFeatueredBooksList(
+              screenSize: MediaQuery.sizeOf(context));
         }
       },
     );
