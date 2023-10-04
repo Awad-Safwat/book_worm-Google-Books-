@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +7,9 @@ class PriceButtonSection extends StatelessWidget {
   const PriceButtonSection({
     super.key,
     required this.screenSize,
+    required this.book,
   });
-
+  final BookEntity book;
   final Size screenSize;
 
   @override

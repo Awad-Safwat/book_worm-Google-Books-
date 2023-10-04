@@ -1,10 +1,12 @@
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/b_details_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+  const BookDetailsView({super.key, required this.book});
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,9 @@ class BookDetailsView extends StatelessWidget {
           ),
         ),
       ),
-      body: const BookDetailsViewBody(),
+      body: BookDetailsViewBody(
+        book: book,
+      ),
     );
   }
 }

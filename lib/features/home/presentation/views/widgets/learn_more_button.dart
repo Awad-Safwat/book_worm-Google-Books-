@@ -15,7 +15,7 @@ class LearnMoreButton extends StatelessWidget {
       color: Colors.transparent,
       elevation: 0,
       onPressed: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).goNamed(AppRouter.kBookDetailsView);
       },
       child: const Text(
         'Learn More',

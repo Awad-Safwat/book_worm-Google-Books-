@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/author_data_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,9 @@ class BookWithAuthorSection extends StatelessWidget {
   const BookWithAuthorSection({
     super.key,
     required this.screenSize,
+    required this.book,
   });
-
+  final BookEntity book;
   final Size screenSize;
 
   @override
@@ -31,8 +33,8 @@ class BookWithAuthorSection extends StatelessWidget {
             height: screenSize.height * .16,
             top: screenSize.height * .05,
             start: screenSize.width * .11,
-            child: const SizedBox(
-              child: SelectedBookCard(),
+            child: SizedBox(
+              child: SelectedBookCard(book: book),
             ),
           ),
           Positioned.directional(

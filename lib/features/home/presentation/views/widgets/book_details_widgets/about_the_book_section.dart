@@ -1,12 +1,14 @@
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 class AbouTheBookSection extends StatelessWidget {
   const AbouTheBookSection({
     super.key,
     required this.screenSize,
+    required this.book,
   });
-
+  final BookEntity book;
   final Size screenSize;
 
   @override
@@ -16,25 +18,23 @@ class AbouTheBookSection extends StatelessWidget {
         right: screenSize.width * .10,
         left: screenSize.width * .10,
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'About The Book',
             style: Styels.textStyle18,
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
-            "'The Psychology of Money' is an essential read for anyone interested in being better with money. Fast-paced and engaging, this book will help you refine your thoughts towards money. You can finish this book in a week, unlike other books that are too lengthy."
-            "                                                                                                                                                                                                                       "
-            "The most important emotions in relation to money are fear, guilt, shame and envy. It's worth spending some effort to become aware of the emotions that are especially tied to money for you because, without awareness, they will tend to override rational thinking and drive your actions.'",
+            book.bookDiscreption!,
             style: Styels.textStyle14,
             maxLines: 20,
             overflow: TextOverflow.ellipsis,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
         ],

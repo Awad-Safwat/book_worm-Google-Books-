@@ -1,3 +1,4 @@
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/about_the_book_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/price_button_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/may_like_section.dart';
@@ -5,8 +6,8 @@ import 'package:book_worm/features/home/presentation/views/widgets/book_details_
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -14,7 +15,7 @@ class BookDetailsViewBody extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BookWithAuthorSection(screenSize: screenSize),
+          BookWithAuthorSection(screenSize: screenSize, book: book),
           SizedBox(
             height: screenSize.height * 0.10,
           ),
@@ -23,9 +24,17 @@ class BookDetailsViewBody extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: Column(
                 children: [
-                  AbouTheBookSection(screenSize: screenSize),
-                  PriceButtonSection(screenSize: screenSize),
-                  MayAlsoLikeSection(screenSize: screenSize),
+                  AbouTheBookSection(
+                    screenSize: screenSize,
+                    book: book,
+                  ),
+                  PriceButtonSection(
+                    screenSize: screenSize,
+                    book: book,
+                  ),
+                  MayAlsoLikeSection(
+                    screenSize: screenSize,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

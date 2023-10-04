@@ -20,36 +20,18 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => FeaturedBooksCubit(
-              FetchFeatcheredBooksUseCase(
-                homeRepo: getIt.get<HomeRepoImple>(),
-              ),
-            )..fetchFeaturedBooks(),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: (AppHelper.gitBritness(context) == Brightness.light)
+                ? const Svg(AssetsData.homeBackgroundImage)
+                : const Svg(AssetsData.homeBackgroundImageDarkTheme),
+            fit: BoxFit.cover,
           ),
-          BlocProvider(
-            create: (context) => NewestBooksCubit(
-              FetchNewestBooksUseCase(
-                homeRepo: getIt.get<HomeRepoImple>(),
-              ),
-            )..fetchNewestBooks(),
-          ),
-        ],
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: (AppHelper.gitBritness(context) == Brightness.light)
-                  ? const Svg(AssetsData.homeBackgroundImage)
-                  : const Svg(AssetsData.homeBackgroundImageDarkTheme),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: const HomeViewBody(),
         ),
+        child: const HomeViewBody(),
       ),
     );
   }

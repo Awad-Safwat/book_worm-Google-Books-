@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +18,12 @@ class BookImage extends StatelessWidget {
       ]),
       child: CachedNetworkImage(
         imageUrl: imageUrl,
+        placeholder: (context, url) => Container(
+          color: Colors.grey,
+          width: MediaQuery.sizeOf(context).width * .16,
+          height: MediaQuery.sizeOf(context).height * .16,
+        ),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     );
   }

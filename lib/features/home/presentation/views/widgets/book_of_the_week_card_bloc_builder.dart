@@ -20,7 +20,7 @@ class BookOfTheWeekCardBlocBuilder extends StatelessWidget {
             child: Text(state.massage),
           );
         } else if (state is NewestBooksSucsess) {
-          return BookOfTheWeekCard(book: state.books[1]);
+          return BookOfTheWeekCard(book: state.books[5]);
         } else {
           return const ShimmerBookOfTheWeekCard();
         }

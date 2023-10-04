@@ -13,6 +13,8 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
   final FetchFeatcheredBooksUseCase featcheredBooksUseCase;
 
+  List<BookEntity> featuredBooksLst = [];
+
   Future<void> fetchFeaturedBooks() async {
     emit(FeaturedBooksLoading());
     Either<Faluer, List<BookEntity>> books =
@@ -21,6 +23,7 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
     books.fold((faluer) {
       emit(FeaturedBooksFalure(massage: faluer.massege));
     }, (books) {
+      featuredBooksLst = books;
       emit(FeaturedBooksSucsess(books: books));
     });
   }

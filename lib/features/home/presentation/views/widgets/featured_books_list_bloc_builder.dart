@@ -23,7 +23,8 @@ class FeatueredBooksListBlocBuilder extends StatelessWidget {
           );
         } else {
           return ShimmerFeatueredBooksList(
-              screenSize: MediaQuery.sizeOf(context));
+            screenSize: MediaQuery.sizeOf(context),
+          );
         }
       },
     );
