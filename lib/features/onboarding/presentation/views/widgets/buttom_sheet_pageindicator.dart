@@ -1,4 +1,4 @@
-import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +16,7 @@ class ButtomSheetPageIndicator extends StatelessWidget {
       count: 3,
       effect: ExpandingDotsEffect(
           expansionFactor: 5,
-          activeDotColor: AppHelper.primaryColor,
+          activeDotColor: AppColors.primaryColor,
           dotHeight: 6,
           dotWidth: 6,
           spacing: MediaQuery.of(context).size.width * .02),

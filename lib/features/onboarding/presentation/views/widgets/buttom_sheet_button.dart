@@ -1,5 +1,6 @@
 import 'package:book_worm/core/utils/app_router.dart';
-import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/core/utils/app_colors.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboarding_cubit/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class ButtomSheetButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor:
-              MaterialStatePropertyAll<Color>(AppHelper.primaryColor),
+              MaterialStatePropertyAll<Color>(AppColors.primaryColor),
           shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(11),
@@ -32,7 +33,7 @@ class ButtomSheetButton extends StatelessWidget {
         onPressed: () async {
           final prefs = await SharedPreferences.getInstance();
           prefs.setBool('showHome', true);
-          GoRouter.of(context).go(AppRouter.kHomeView);
+          GoRouter.of(context).go(AppStrings.kHomeView);
         },
         child: Center(
           child: Padding(

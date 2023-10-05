@@ -1,3 +1,4 @@
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ShimmerFeatueredBooksList extends StatelessWidget {
@@ -16,7 +17,7 @@ class ShimmerFeatueredBooksList extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6.0),
             child: Container(
-              color: Colors.grey,
+              color: AppColors.loadingColor,
               width: screenSize.width * .22,
               height: screenSize.height * .16,
             ),

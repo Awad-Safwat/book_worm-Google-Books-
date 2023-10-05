@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_router.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
@@ -39,7 +40,7 @@ class MayAlsoLikeSection extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: GestureDetector(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                      GoRouter.of(context).push(AppStrings.kBookDetailsView,
                           extra: featuredBooksList.featuredBooksLst[index]);
                     },
                     child: BookImage(

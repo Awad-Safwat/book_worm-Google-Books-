@@ -1,6 +1,6 @@
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
 import 'package:flutter/material.dart';
 
 class PriceButtonSection extends StatelessWidget {
@@ -34,13 +34,14 @@ class PriceButtonSection extends StatelessWidget {
                 style: Styels.textStyle18.copyWith(color: Colors.black),
               ),
               const Spacer(),
-              GrabNowButton(
+              ReadNowButton(
                 buttonHeight: 45,
                 buttonWidth: screenSize.width * .45,
                 topLeftRadius: 0,
                 bottomLeftRadius: 0,
                 topRightRadius: 15,
                 bottomRightRadius: 15,
+                bookUrl: book.bookWebViewUrl!,
               ),
             ],
           ),
