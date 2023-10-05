@@ -5,4 +5,5 @@ class AppStrings {
   static const kBookDetailsView = '/BookDetailsView';
   static const kSearchView = '/SearchView';
   static const kBookWebView = '/BookWebView';
+  static const kHistoryBox = 'history_Box';
 }

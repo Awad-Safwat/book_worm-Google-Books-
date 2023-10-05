@@ -2,6 +2,8 @@ import 'package:book_worm/core/utils/api_service.dart';
 import 'package:book_worm/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:book_worm/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
+import 'package:book_worm/features/search/data/data_sources/search_remote_data_source.dart';
+import 'package:book_worm/features/search/data/repos/search_repo_implementation.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -21,4 +23,10 @@ void settingUpGetItServices() {
       ),
     ),
   );
+
+  getIt.registerSingleton<SearchRepoImplementation>(SearchRepoImplementation(
+    searchRemoteDataSource: SearchRemoteDataSourceImple(
+      apiService: getIt.get<ApiService>(),
+    ),
+  ));
 }

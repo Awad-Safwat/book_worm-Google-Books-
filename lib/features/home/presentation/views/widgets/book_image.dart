@@ -23,7 +23,12 @@ class BookImage extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width * .16,
           height: MediaQuery.sizeOf(context).height * .16,
         ),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
+        errorWidget: (context, url, error) => Container(
+          color: Colors.grey,
+          width: MediaQuery.sizeOf(context).width * .16,
+          height: MediaQuery.sizeOf(context).height * .16,
+        ),
+        fit: BoxFit.fill,
       ),
     );
   }

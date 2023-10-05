@@ -7,18 +7,21 @@ import 'package:dio/dio.dart';
 
 class SearchRepoImplementation extends SearchViewRepo {
   final SearchRemoteDataSource searchRemoteDataSource;
+  // final String searchKey;
 
   SearchRepoImplementation({required this.searchRemoteDataSource});
+
   @override
   Future<Either<Faluer, List<SearchedBookEntity>>> fetchHistorySearchedBooks() {
     throw 'e';
   }
 
   @override
-  Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks() async {
+  Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks(
+      String? searchKey) async {
     List<SearchedBookEntity> books;
     try {
-      books = await searchRemoteDataSource.fetchSearchedBooks();
+      books = await searchRemoteDataSource.fetchSearchedBooks(searchKey ?? '');
       return right(books);
     } catch (e) {
       if (e is DioException) {

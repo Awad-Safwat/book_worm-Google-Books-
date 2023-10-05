@@ -5,6 +5,9 @@ import 'package:book_worm/features/home/domain/use_cases/fetch_featchered_books_
 import 'package:book_worm/features/home/domain/use_cases/fetch_newest_books_usecase.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:book_worm/features/search/data/repos/search_repo_implementation.dart';
+import 'package:book_worm/features/search/domain/use_cases/fetch_searched_books_use_case.dart';
+import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,6 +31,13 @@ class BookWorm extends StatelessWidget {
               homeRepo: getIt.get<HomeRepoImple>(),
             ),
           )..fetchNewestBooks(),
+        ),
+        BlocProvider(
+          create: (context) => SearchCubit(
+            FetchSearchedBooksUseCase(
+              searchViewRepo: getIt.get<SearchRepoImplementation>(),
+            ),
+          )..fetchSearchedBooks('reading'),
         ),
       ],
       child: MaterialApp.router(

@@ -5,6 +5,7 @@ import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/setup_get_it_services.dart';
 import 'package:book_worm/features/book_worm.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
+import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,5 +22,7 @@ void main() async {
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(AppStrings.kFeatueredBox);
   await Hive.openBox<BookEntity>(AppStrings.kNewestBox);
+  await Hive.openBox<SearchedBookEntity>(AppStrings.kHistoryBox);
+
   runApp(const BookWorm());
 }

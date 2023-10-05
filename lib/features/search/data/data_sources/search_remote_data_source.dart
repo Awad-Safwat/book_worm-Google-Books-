@@ -3,7 +3,7 @@ import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 
 abstract class SearchRemoteDataSource {
-  Future<List<SearchedBookEntity>> fetchSearchedBooks();
+  Future<List<SearchedBookEntity>> fetchSearchedBooks(String? searchKey);
 }
 
 class SearchRemoteDataSourceImple extends SearchRemoteDataSource {
@@ -11,11 +11,12 @@ class SearchRemoteDataSourceImple extends SearchRemoteDataSource {
 
   SearchRemoteDataSourceImple({required this.apiService});
   @override
-  Future<List<SearchedBookEntity>> fetchSearchedBooks() async {
-    var response = await apiService.get(endPoint: '');
+  Future<List<SearchedBookEntity>> fetchSearchedBooks(String? searchKey) async {
+    var response =
+        await apiService.get(endPoint: 'volumes?q=$searchKey&orderBy=newest');
 
     List<SearchedBookEntity> extractedList =
-        extractingMapDataToListForHomeFeature(response);
+        extractingMapDataToListSearchFeature(response);
 
     return extractedList;
   }

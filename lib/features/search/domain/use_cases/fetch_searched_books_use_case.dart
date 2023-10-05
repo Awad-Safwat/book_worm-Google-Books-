@@ -5,13 +5,13 @@ import 'package:book_worm/features/search/domain/repos/search_view_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class FetchSearchedBooksUseCase
-    extends UseCase<List<SearchedBookEntity>, NoParam> {
+    extends UseCase<List<SearchedBookEntity>, String> {
   final SearchViewRepo searchViewRepo;
 
   FetchSearchedBooksUseCase({required this.searchViewRepo});
   @override
   Future<Either<Faluer, List<SearchedBookEntity>>> call(
-      [NoParam? pragma]) async {
-    return await searchViewRepo.fetchSearchedBooks();
+      [String? searchKey]) async {
+    return await searchViewRepo.fetchSearchedBooks(searchKey ?? '');
   }
 }

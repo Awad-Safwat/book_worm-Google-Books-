@@ -22,7 +22,7 @@ List<BookEntity> extractingMapDataToListForHomeFeature(
   return extractedBooksList;
 }
 
-List<SearchedBookEntity> extractingMapDataToList(
+List<SearchedBookEntity> extractingMapDataToListSearchFeature(
     Map<String, dynamic> response) {
   List<SearchedBookEntity> extractedBooksList = [];
   for (Map<String, dynamic> element in response['items']) {

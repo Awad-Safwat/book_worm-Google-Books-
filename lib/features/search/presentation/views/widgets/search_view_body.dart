@@ -1,11 +1,17 @@
 import 'package:book_worm/core/utils/font_styels.dart';
+import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_section.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
-
+  const SearchViewBody({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,6 +21,9 @@ class SearchViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
+            onChanged: (value) {
+              BlocProvider.of<SearchCubit>(context).fetchSearchedBooks(value);
+            },
             decoration: InputDecoration(
               hintText: "Search",
               suffixIcon: const Icon(
@@ -29,27 +38,13 @@ class SearchViewBody extends StatelessWidget {
             height: 20,
           ),
           const Text(
-            'Search Result',
+            'Last Search Result',
             style: Styels.textStyle18,
           ),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: 100,
-                    (context, index) => const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 5,
-                      ),
-                      child: SearchResultListItem(),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          const SizedBox(
+            height: 20,
           ),
+          const SearchViewBodyBlocBuilder(),
         ],
       ),
     ));
