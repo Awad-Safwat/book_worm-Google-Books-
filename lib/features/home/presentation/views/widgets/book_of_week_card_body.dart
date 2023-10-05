@@ -1,7 +1,7 @@
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
 import 'package:flutter/material.dart';
 
@@ -63,13 +63,17 @@ class BookOfWeekCardBody extends StatelessWidget {
                 const SizedBox(
                   height: 2,
                 ),
-                const Row(
+                Row(
                   children: [
-                    GrabNowButton(),
-                    SizedBox(
+                    ReadNowButton(
+                      bookUrl: book.bookWebViewUrl ?? '',
+                    ),
+                    const SizedBox(
                       width: 5,
                     ),
-                    LearnMoreButton()
+                    LearnMoreButton(
+                      book: book,
+                    )
                   ],
                 )
               ],

@@ -1,6 +1,7 @@
 import 'package:book_worm/core/utils/api_service.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/functions.dart';
-import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/features/home/data/models/book_model/book_model/book_model.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:hive/hive.dart';
@@ -23,7 +24,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     saveBooksLocaly(
       extractedBooksList: extractedBooksList,
-      boxName: kFeatueredBox,
+      boxName: AppStrings.kFeatueredBox,
     );
 
     return extractedBooksList;
@@ -38,7 +39,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     saveBooksLocaly(
       extractedBooksList: extractedBooksList,
-      boxName: kNewestBox,
+      boxName: AppStrings.kNewestBox,
     );
     return extractedBooksList;
   }

@@ -23,8 +23,11 @@ class BookEntity {
   final String? bookDiscreption;
   @HiveField(8)
   final String? price;
+  @HiveField(9)
+  final String? bookWebViewUrl;
 
   BookEntity({
+    required this.bookWebViewUrl,
     required this.bookTitle,
     required this.rating,
     required this.numOfReviews,

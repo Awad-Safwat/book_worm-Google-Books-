@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_router.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class FeatueredBooksList extends StatelessWidget {
             child: GestureDetector(
                 onTap: () {
                   GoRouter.of(context)
-                      .push(AppRouter.kBookDetailsView, extra: books[index]);
+                      .push(AppStrings.kBookDetailsView, extra: books[index]);
                 },
                 child: BookImage(imageUrl: books[index].imageUrl!)),
           );

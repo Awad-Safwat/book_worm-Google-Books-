@@ -1,6 +1,6 @@
 import 'package:book_worm/core/utils/api_service.dart';
 import 'package:book_worm/core/utils/assets/assets.dart';
-import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/setup_get_it_services.dart';
 import 'package:book_worm/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:book_worm/features/home/data/data_sources/home_remote_data_source.dart';
@@ -25,7 +25,7 @@ class HomeView extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: (AppHelper.gitBritness(context) == Brightness.light)
+            image: (AppColors.gitBritness(context) == Brightness.light)
                 ? const Svg(AssetsData.homeBackgroundImage)
                 : const Svg(AssetsData.homeBackgroundImageDarkTheme),
             fit: BoxFit.cover,

@@ -25,6 +25,7 @@ class BookModel extends BookEntity {
     this.accessInfo,
     this.searchInfo,
   }) : super(
+          bookWebViewUrl: volumeInfo?.previewLink,
           bookTitle: volumeInfo?.title,
           rating: volumeInfo?.averageRating,
           numOfReviews: volumeInfo?.ratingsCount,

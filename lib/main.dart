@@ -1,6 +1,7 @@
 import 'package:book_worm/core/utils/app_router.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/bloc_observer/app_bloc_observer.dart';
-import 'package:book_worm/core/utils/helper.dart';
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/setup_get_it_services.dart';
 import 'package:book_worm/features/book_worm.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
@@ -18,7 +19,7 @@ void main() async {
   Bloc.observer = AppBlocObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox<BookEntity>(kFeatueredBox);
-  await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(AppStrings.kFeatueredBox);
+  await Hive.openBox<BookEntity>(AppStrings.kNewestBox);
   runApp(const BookWorm());
 }

@@ -22,8 +22,9 @@ class HomeRepoImple extends HomeViewRepo {
       books = localDataSource.fetchFeatcheredBooks();
       if (books.isNotEmpty) {
         return right(books);
+      } else {
+        books = await remoteDataSourec.fetchFeatueredBooks();
       }
-      books = await remoteDataSourec.fetchFeatueredBooks();
 
       return right(books);
     } catch (e) {
@@ -41,8 +42,9 @@ class HomeRepoImple extends HomeViewRepo {
       books = localDataSource.fetchNewestBooks();
       if (books.isNotEmpty) {
         return right(books);
+      } else {
+        books = await remoteDataSourec.fetchNewestBooks();
       }
-      books = await remoteDataSourec.fetchNewestBooks();
 
       return right(books);
     } catch (e) {

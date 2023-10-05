@@ -1,9 +1,10 @@
 import 'package:book_worm/core/utils/app_router.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/grab_now_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,7 +20,7 @@ class NewstListItemBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: book);
+        GoRouter.of(context).push(AppStrings.kBookDetailsView, extra: book);
       },
       child: Row(
         children: [
@@ -81,15 +82,17 @@ class NewstListItemBody extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Padding(
-            padding: EdgeInsets.symmetric(
+          Padding(
+            padding: const EdgeInsets.symmetric(
               horizontal: 8,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GrabNowButton(),
-                LearnMoreButton(),
+                ReadNowButton(bookUrl: book.bookWebViewUrl!),
+                LearnMoreButton(
+                  book: book,
+                ),
               ],
             ),
           ),
