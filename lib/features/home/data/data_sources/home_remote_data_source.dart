@@ -20,7 +20,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var response = await apiService.get(
         endPoint: 'volumes?q=mental%20health&orderBy=newest');
 
-    List<BookEntity> extractedBooksList = extractingMapDataToList(response);
+    List<BookEntity> extractedBooksList =
+        extractingMapDataToListForHomeFeature(response);
 
     saveBooksLocaly(
       extractedBooksList: extractedBooksList,
@@ -35,7 +36,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var response =
         await apiService.get(endPoint: 'volumes?q=programming&orderBy=newest');
 
-    List<BookEntity> extractedBooksList = extractingMapDataToList(response);
+    List<BookEntity> extractedBooksList =
+        extractingMapDataToListForHomeFeature(response);
 
     saveBooksLocaly(
       extractedBooksList: extractedBooksList,

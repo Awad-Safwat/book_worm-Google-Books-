@@ -1,9 +1,11 @@
+import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class SearchedBookModel {
+class SearchedBookModel extends SearchedBookEntity {
   String? kind;
   String? id;
   String? etag;
@@ -22,7 +24,18 @@ class SearchedBookModel {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  });
+  }) : super(
+          bookWebViewUrl: volumeInfo?.previewLink,
+          bookTitle: volumeInfo?.title,
+          rating: volumeInfo?.averageRating,
+          numOfReviews: volumeInfo?.ratingsCount,
+          imageUrl: volumeInfo?.imageLinks?.thumbnail,
+          bookId: id,
+          authorName: volumeInfo?.authors?[0],
+          authorImage: null,
+          bookDiscreption: volumeInfo?.description,
+          price: saleInfo?.saleability,
+        );
 
   factory SearchedBookModel.fromJson(Map<String, dynamic> json) {
     return SearchedBookModel(
