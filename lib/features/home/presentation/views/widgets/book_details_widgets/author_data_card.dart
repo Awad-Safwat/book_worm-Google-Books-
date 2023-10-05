@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class AuthorDataCard extends StatelessWidget {
   const AuthorDataCard({
     super.key,
+    required this.aoutherName,
   });
+  final String aoutherName;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +37,8 @@ class AuthorDataCard extends StatelessWidget {
                   style: Styels.textStyle10
                       .copyWith(fontWeight: FontWeight.normal),
                 ),
-                const Text(
-                  'Morgan Housel',
+                Text(
+                  aoutherName,
                   style: Styels.textStyle18,
                 ),
                 const Text(

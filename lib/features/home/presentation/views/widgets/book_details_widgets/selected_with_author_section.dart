@@ -43,7 +43,9 @@ class BookWithAuthorSection extends StatelessWidget {
             start: screenSize.width * .09,
             top: screenSize.height * .23,
             textDirection: TextDirection.ltr,
-            child: const AuthorDataCard(),
+            child: AuthorDataCard(
+              aoutherName: book.authorName ?? 'No name found',
+            ),
           )
         ],
       ),
