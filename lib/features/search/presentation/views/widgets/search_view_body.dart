@@ -1,5 +1,5 @@
 import 'package:book_worm/core/utils/font_styels.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -43,7 +43,7 @@ class SearchViewBody extends StatelessWidget {
                         horizontal: 10,
                         vertical: 5,
                       ),
-                      child: Text('To do'),
+                      child: SearchResultListItem(),
                     ),
                   ),
                 ),

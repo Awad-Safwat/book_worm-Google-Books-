@@ -5,22 +5,19 @@ import 'package:book_worm/features/home/presentation/views/widgets/learn_more_bu
 import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
 import 'package:flutter/material.dart';
 
-class NewstListItemBody extends StatelessWidget {
-  const NewstListItemBody({
+class SearchResultListItemBody extends StatelessWidget {
+  const SearchResultListItemBody({
     super.key,
-    required this.book,
   });
-
-  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: BookImage(
-            imageUrl: book.imageUrl!,
+            imageUrl: '',
           ),
         ),
         ConstrainedBox(
@@ -32,7 +29,7 @@ class NewstListItemBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                book.bookTitle!,
+                "book.bookTitle!",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Styels.textStyle14.copyWith(fontWeight: FontWeight.w700),
@@ -41,48 +38,27 @@ class NewstListItemBody extends StatelessWidget {
                 height: 3,
               ),
               Text(
-                book.authorName!,
+                "book.authorName!",
                 style: Styels.textStyle10.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 3,
               ),
-              Row(
-                children: [
-                  Text(
-                    '5.0',
-                    style: Styels.textStyle10.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xffF24F09),
-                    ),
-                  ),
-                  Text(" | " "Based on 23k Reviews",
-                      style: Styels.textStyle10
-                          .copyWith(fontWeight: FontWeight.normal)),
-                ],
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(
-                r'$' ' 45.87',
-                style: Styels.textStyle14.copyWith(fontWeight: FontWeight.w600),
-              )
             ],
           ),
         ),
         const Spacer(),
-        Padding(
-          padding: const EdgeInsets.symmetric(
+        const Padding(
+          padding: EdgeInsets.symmetric(
             horizontal: 8,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ReadNowButton(bookUrl: book.bookWebViewUrl!),
-              LearnMoreButton(
-                book: book,
-              ),
+              ReadNowButton(bookUrl: "book.bookWebViewUrl!"),
+              // LearnMoreButton(
+              //   book:BookEntity(),
+              // ),
             ],
           ),
         ),

@@ -5,6 +5,6 @@ import 'package:dartz/dartz.dart';
 abstract class HomeViewRepo {
   Future<Either<Faluer, List<BookEntity>>> fetchFeatcheredBooks();
   Future<Either<Faluer, List<BookEntity>>> fetchNewestBooks();
-  // to do 
+  // to do
   // add the book of the week func.
 }
