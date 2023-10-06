@@ -5,9 +5,9 @@ import 'package:book_worm/features/search/data/models/searched_book_model/search
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:hive/hive.dart';
 
-void saveBooksLocaly(
-    {required List<BookEntity> extractedBooksList, required String boxName}) {
-  var box = Hive.box<BookEntity>(boxName);
+void saveBooksLocaly<type>(
+    {required List<type> extractedBooksList, required String boxName}) {
+  var box = Hive.box<type>(boxName);
   box.addAll(extractedBooksList);
 }
 

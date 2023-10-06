@@ -4,6 +4,7 @@ import 'package:book_worm/features/home/presentation/views/book_details_view.dar
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_web_view.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboard_view.dart';
+import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:book_worm/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -48,6 +49,30 @@ abstract class AppRouter {
         path: AppStrings.kBookDetailsView,
         pageBuilder: (BuildContext context, GoRouterState state) {
           BookEntity book = state.extra as BookEntity;
+          return CustomTransitionPage<void>(
+            key: state.pageKey,
+            child: BookDetailsView(
+              book: book,
+            ),
+            transitionDuration: const Duration(milliseconds: 850),
+            transitionsBuilder: (BuildContext context,
+                Animation<double> animation,
+                Animation<double> secondaryAnimation,
+                Widget child) {
+              // Change the opacity of the screen using a Curve based on the the animation's
+              // value
+              return FadeTransition(
+                opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: AppStrings.kSearchedBookDetailsView,
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          SearchedBookEntity book = state.extra as SearchedBookEntity;
           return CustomTransitionPage<void>(
             key: state.pageKey,
             child: BookDetailsView(

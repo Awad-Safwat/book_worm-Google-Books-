@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 
 part 'searched_book_entity.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 class SearchedBookEntity {
   @HiveField(0)
   final String? bookId;

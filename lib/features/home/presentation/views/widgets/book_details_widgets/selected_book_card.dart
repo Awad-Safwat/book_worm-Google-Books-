@@ -9,7 +9,7 @@ class SelectedBookCard extends StatelessWidget {
     super.key,
     required this.book,
   });
-  final BookEntity book;
+  final dynamic book;
   @override
   Widget build(BuildContext context) {
     return Row(

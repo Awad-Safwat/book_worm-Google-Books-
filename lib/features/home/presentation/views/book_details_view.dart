@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 class BookDetailsView extends StatelessWidget {
   const BookDetailsView({super.key, required this.book});
-  final BookEntity book;
+  final dynamic book;
 
   @override
   Widget build(BuildContext context) {

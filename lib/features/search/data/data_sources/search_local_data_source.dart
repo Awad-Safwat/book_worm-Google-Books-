@@ -10,6 +10,7 @@ class SearchLocalDataSourceImple extends SearchLocalDataSource {
   @override
   List<SearchedBookEntity> fetchHistoryData() {
     Box<SearchedBookEntity> box = Hive.box(AppStrings.kHistoryBox);
-    return box.values.toList();
+    var boxValues = box.values.toSet();
+    return boxValues.toList();
   }
 }

@@ -37,9 +37,15 @@ class AuthorDataCard extends StatelessWidget {
                   style: Styels.textStyle10
                       .copyWith(fontWeight: FontWeight.normal),
                 ),
-                Text(
-                  aoutherName,
-                  style: Styels.textStyle18,
+                ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 180),
+                  child: Text(
+                    aoutherName,
+                    maxLines: 1,
+                    style: Styels.textStyle18.copyWith(
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
                 const Text(
                   'Best Seller of New York Times',

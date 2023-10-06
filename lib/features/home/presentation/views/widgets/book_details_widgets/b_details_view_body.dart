@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key, required this.book});
-  final BookEntity book;
+  final dynamic book;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;

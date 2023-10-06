@@ -1,5 +1,6 @@
 import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item_body.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
@@ -34,7 +35,10 @@ class SearchResultListItem extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .90,
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppStrings.kBookDetailsView, extra: book);
+          saveBooksLocaly(
+              extractedBooksList: [book], boxName: AppStrings.kHistoryBox);
+          GoRouter.of(context)
+              .push(AppStrings.kSearchedBookDetailsView, extra: book);
         },
         child: SearchResultListItemBody(book: book),
       ),

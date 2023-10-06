@@ -20,6 +20,7 @@ void main() async {
   Bloc.observer = AppBlocObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
+  Hive.registerAdapter(SearchedBookEntityAdapter());
   await Hive.openBox<BookEntity>(AppStrings.kFeatueredBox);
   await Hive.openBox<BookEntity>(AppStrings.kNewestBox);
   await Hive.openBox<SearchedBookEntity>(AppStrings.kHistoryBox);

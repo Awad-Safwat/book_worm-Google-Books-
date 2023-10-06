@@ -32,13 +32,6 @@ class BookWorm extends StatelessWidget {
             ),
           )..fetchNewestBooks(),
         ),
-        BlocProvider(
-          create: (context) => SearchCubit(
-            FetchSearchedBooksUseCase(
-              searchViewRepo: getIt.get<SearchRepoImplementation>(),
-            ),
-          )..fetchSearchedBooks('reading'),
-        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

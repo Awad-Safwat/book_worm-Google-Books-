@@ -9,7 +9,7 @@ class PriceButtonSection extends StatelessWidget {
     required this.screenSize,
     required this.book,
   });
-  final BookEntity book;
+  final dynamic book;
   final Size screenSize;
 
   @override

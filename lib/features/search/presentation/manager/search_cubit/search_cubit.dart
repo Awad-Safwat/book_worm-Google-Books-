@@ -15,7 +15,9 @@ class SearchCubit extends Cubit<SearchState> {
 
   fetchSearchedBooks(String? searchKey) async {
     emit(SearchLoading());
-
+    if (searchKey!.isEmpty) {
+      emit(SearchFaluer(massage: ''));
+    }
     Either<Faluer, List<SearchedBookEntity>> books =
         await fetchSearchedBooksUseCase.call(searchKey);
     books.fold((faluer) {

@@ -1,6 +1,8 @@
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/search/presentation/manager/history_cubit/history_cubit.dart';
 import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/history_body_bloc_builder.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_section.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_builder.dart';
@@ -22,7 +24,11 @@ class SearchViewBody extends StatelessWidget {
         children: [
           TextField(
             onChanged: (value) {
-              BlocProvider.of<SearchCubit>(context).fetchSearchedBooks(value);
+              if (value.isEmpty) {
+                BlocProvider.of<HistoryCubit>(context).fecthHistory();
+              } else {
+                BlocProvider.of<SearchCubit>(context).fetchSearchedBooks(value);
+              }
             },
             decoration: InputDecoration(
               hintText: "Search",
@@ -38,7 +44,7 @@ class SearchViewBody extends StatelessWidget {
             height: 20,
           ),
           const Text(
-            'Last Search Result',
+            'Search Result',
             style: Styels.textStyle18,
           ),
           const SizedBox(
