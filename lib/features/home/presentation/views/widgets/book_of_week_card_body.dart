@@ -16,71 +16,69 @@ class BookOfWeekCardBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 10,
-        bottom: 10,
-      ),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.sizeOf(context).height * 0.17,
-                maxWidth: MediaQuery.sizeOf(context).width * 0.22,
-              ),
-              child: BookImage(
-                imageUrl: book.imageUrl!,
-              ),
+    return Row(
+      children: [
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.sizeOf(context).height * 0.15,
+            maxWidth: MediaQuery.sizeOf(context).width * 0.20,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: BookImage(
+              imageUrl: book.imageUrl!,
             ),
           ),
-          const SizedBox(
-            width: 25,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: screenSize.height * 0.20,
+            maxWidth: screenSize.width * 0.40,
           ),
-          SizedBox(
-            width: screenSize.width * 0.5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  book.bookTitle!,
-                  style: Styels.textStyle14.copyWith(
-                    fontWeight: FontWeight.bold,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                book.bookTitle!,
+                style: Styels.textStyle14.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              Text(
+                book.bookDiscreption ?? '',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 4,
+                style: Styels.textStyle8,
+              ),
+              const SizedBox(
+                height: 2,
+              ),
+              Row(
+                children: [
+                  ReadNowButton(
+                    bookUrl: book.bookWebViewUrl ?? '',
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  book.bookDiscreption ?? '',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 5,
-                  style: Styels.textStyle8,
-                ),
-                const SizedBox(
-                  height: 2,
-                ),
-                Row(
-                  children: [
-                    ReadNowButton(
-                      bookUrl: book.bookWebViewUrl ?? '',
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    LearnMoreButton(
-                      book: book,
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  LearnMoreButton(
+                    book: book,
+                  )
+                ],
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }

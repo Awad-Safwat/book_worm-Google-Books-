@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="book_worm"
+        android:label="Book Worm"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/appicon">

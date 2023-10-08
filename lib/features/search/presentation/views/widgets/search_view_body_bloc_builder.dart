@@ -22,6 +22,7 @@ class SearchViewBodyBlocBuilder extends StatelessWidget {
         } else {
           return Expanded(
             child: ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 10,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

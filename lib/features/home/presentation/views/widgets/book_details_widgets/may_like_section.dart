@@ -34,6 +34,7 @@ class MayAlsoLikeSection extends StatelessWidget {
           SizedBox(
             height: 130,
             child: ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               scrollDirection: Axis.horizontal,
               itemBuilder: (contxt, index) {
                 return Padding(

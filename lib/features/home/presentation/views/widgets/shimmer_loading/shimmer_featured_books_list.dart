@@ -12,6 +12,7 @@ class ShimmerFeatueredBooksList extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.16,
       child: ListView.builder(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: Axis.horizontal,
         itemBuilder: (contxt, index) {
           return Padding(

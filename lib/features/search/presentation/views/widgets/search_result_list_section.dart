@@ -14,6 +14,7 @@ class SearchResultListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: CustomScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         slivers: [
           SliverList(
             delegate: SliverChildBuilderDelegate(

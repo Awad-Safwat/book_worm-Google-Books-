@@ -24,7 +24,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         extractingMapDataToListForHomeFeature(response);
 
     saveBooksLocaly<BookEntity>(
-      extractedBooksList: extractedBooksList,
+      extractedBooksList: extractedBooksList.toSet(),
       boxName: AppStrings.kFeatueredBox,
     );
 
@@ -40,7 +40,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         extractingMapDataToListForHomeFeature(response);
 
     saveBooksLocaly(
-      extractedBooksList: extractedBooksList,
+      extractedBooksList: extractedBooksList.toSet(),
       boxName: AppStrings.kNewestBox,
     );
     return extractedBooksList;

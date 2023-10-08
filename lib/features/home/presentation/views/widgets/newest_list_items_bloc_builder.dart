@@ -36,6 +36,7 @@ class PobularListItemsBlocBuilder extends StatelessWidget {
         } else {
           return SliverToBoxAdapter(
             child: ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 10,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

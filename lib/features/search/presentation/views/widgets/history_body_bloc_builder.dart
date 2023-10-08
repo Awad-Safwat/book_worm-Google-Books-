@@ -19,6 +19,7 @@ class HistoryBodyBlocBuilder extends StatelessWidget {
         } else if (state is HistoryLoading) {
           return Expanded(
             child: ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 10,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

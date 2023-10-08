@@ -21,6 +21,7 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           Expanded(
             child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               padding: EdgeInsets.zero,
               child: Column(
                 children: [

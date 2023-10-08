@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
@@ -16,6 +15,7 @@ class FeatueredBooksList extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.16,
       child: ListView.builder(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: Axis.horizontal,
         itemBuilder: (contxt, index) {
           return Padding(

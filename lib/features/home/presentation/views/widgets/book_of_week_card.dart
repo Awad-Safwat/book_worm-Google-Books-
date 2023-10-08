@@ -7,11 +7,12 @@ class BookOfTheWeekCard extends StatelessWidget {
   const BookOfTheWeekCard({
     super.key,
     required this.book,
+    required this.screenSize,
   });
   final BookEntity book;
+  final Size screenSize;
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.only(
           right: screenSize.width * 0.06,

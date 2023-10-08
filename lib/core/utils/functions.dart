@@ -6,7 +6,7 @@ import 'package:book_worm/features/search/domain/entities/searched_book_entity.d
 import 'package:hive/hive.dart';
 
 void saveBooksLocaly<type>(
-    {required List<type> extractedBooksList, required String boxName}) {
+    {required Set<type> extractedBooksList, required String boxName}) {
   var box = Hive.box<type>(boxName);
   box.addAll(extractedBooksList);
 }

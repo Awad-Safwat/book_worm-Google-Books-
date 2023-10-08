@@ -36,7 +36,7 @@ class SearchResultListItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           saveBooksLocaly(
-              extractedBooksList: [book], boxName: AppStrings.kHistoryBox);
+              extractedBooksList: {book}, boxName: AppStrings.kHistoryBox);
           GoRouter.of(context)
               .push(AppStrings.kSearchedBookDetailsView, extra: book);
         },
