@@ -1,10 +1,7 @@
 import 'package:book_worm/core/utils/api_service.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/functions.dart';
-import 'package:book_worm/core/utils/app_colors.dart';
-import 'package:book_worm/features/home/data/models/book_model/book_model/book_model.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeatueredBooks();
@@ -16,9 +13,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   HomeRemoteDataSourceImpl({required this.apiService});
   @override
-  Future<List<BookEntity>> fetchFeatueredBooks() async {
+  Future<List<BookEntity>> fetchFeatueredBooks({int pageNumber = 0}) async {
     var response = await apiService.get(
-        endPoint: 'volumes?q=mental%20health&orderBy=newest');
+        endPoint:
+            'volumes?q=mental%20health&orderBy=newest&startIndex=${pageNumber * 10}');
 
     List<BookEntity> extractedBooksList =
         extractingMapDataToListForHomeFeature(response);
@@ -32,9 +30,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async {
-    var response =
-        await apiService.get(endPoint: 'volumes?q=programming&orderBy=newest');
+  Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
+    var response = await apiService.get(
+        endPoint:
+            'volumes?q=programming&orderBy=newest&startIndex=${pageNumber * 10}');
 
     List<BookEntity> extractedBooksList =
         extractingMapDataToListForHomeFeature(response);

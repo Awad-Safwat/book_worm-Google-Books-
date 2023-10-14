@@ -13,8 +13,8 @@ class SearchRemoteDataSourceImple extends SearchRemoteDataSource {
   SearchRemoteDataSourceImple({required this.apiService});
   @override
   Future<List<SearchedBookEntity>> fetchSearchedBooks(String? searchKey) async {
-    var response =
-        await apiService.get(endPoint: 'volumes?q=$searchKey&orderBy=newest');
+    var response = await apiService.get(
+        endPoint: 'volumes?q=$searchKey&orderBy=relevance');
 
     List<SearchedBookEntity> extractedList =
         extractingMapDataToListSearchFeature(response);

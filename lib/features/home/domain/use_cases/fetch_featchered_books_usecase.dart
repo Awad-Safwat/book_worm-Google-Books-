@@ -4,13 +4,13 @@ import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/domain/repos/home_view_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class FetchFeatcheredBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
+class FetchFeatueredBooksUseCase extends UseCase<List<BookEntity>, int> {
   final HomeViewRepo homeRepo;
 
-  FetchFeatcheredBooksUseCase({required this.homeRepo});
+  FetchFeatueredBooksUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> call([NoParam? pragma]) async {
-    return await homeRepo.fetchFeatcheredBooks();
+  Future<Either<Faluer, List<BookEntity>>> call([int? pageNumber]) async {
+    return await homeRepo.fetchFeatcheredBooks(pageNumber ?? 0);
   }
 }

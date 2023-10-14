@@ -4,14 +4,19 @@ import 'package:hive/hive.dart';
 
 abstract class HomeLocalDataSource {
   List<BookEntity> fetchNewestBooks();
-  List<BookEntity> fetchFeatcheredBooks();
+  List<BookEntity> fetchFeatueredBooks({int pageNumber});
 }
 
 class HomeLocalDataSourceImple extends HomeLocalDataSource {
+  HomeLocalDataSourceImple();
   @override
-  List<BookEntity> fetchFeatcheredBooks() {
+  List<BookEntity> fetchFeatueredBooks({int pageNumber = 0}) {
+    int startIndex = pageNumber * 10, endIndex = (pageNumber + 1) * 10;
+
     Box<BookEntity> box = Hive.box(AppStrings.kFeatueredBox);
-    return box.values.toList();
+    int length = box.values.length;
+    if (startIndex >= length || endIndex > length) return [];
+    return box.values.toList().sublist(startIndex, endIndex);
   }
 
   @override

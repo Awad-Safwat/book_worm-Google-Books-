@@ -20,7 +20,7 @@ class BookWorm extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
-            FetchFeatcheredBooksUseCase(
+            FetchFeatueredBooksUseCase(
               homeRepo: getIt.get<HomeRepoImple>(),
             ),
           )..fetchFeaturedBooks(),

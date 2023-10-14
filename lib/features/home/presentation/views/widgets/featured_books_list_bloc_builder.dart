@@ -1,3 +1,4 @@
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_featured_books_list.dart';
@@ -11,21 +12,42 @@ class FeatueredBooksListBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
-      builder: (context, state) {
-        if (state is FeaturedBooksFalure) {
-          return Center(
-            child: Text(state.massage),
-          );
-        } else if (state is FeaturedBooksSucsess) {
-          return FeatueredBooksList(
-            books: state.books,
-          );
-        } else {
-          return ShimmerFeatueredBooksList(
-            screenSize: MediaQuery.sizeOf(context),
-          );
+    return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
+      listener: (context, state) {
+        if (state is FeaturedBooksSucsess) {
+          BlocProvider.of<FeaturedBooksCubit>(context)
+              .featuredBooksLst
+              .addAll(state.books);
         }
+
+        if (state is FeaturedBooksFalure) {
+          showToast(state.massage);
+        }
+        if (state is FeaturedBooksPaginationFalure) {
+          showToast(state.massage);
+        }
+      },
+      builder: (context, state) {
+        return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+          builder: (context, state) {
+            if (state is FeaturedBooksFalure) {
+              return ShimmerFeatueredBooksList(
+                screenSize: MediaQuery.sizeOf(context),
+              );
+            } else if (state is FeaturedBooksSucsess ||
+                state is FeaturedBooksPaginationFalure ||
+                state is FeaturedBooksPaginationLoading) {
+              return FeatueredBooksList(
+                books: BlocProvider.of<FeaturedBooksCubit>(context)
+                    .featuredBooksLst,
+              );
+            } else {
+              return ShimmerFeatueredBooksList(
+                screenSize: MediaQuery.sizeOf(context),
+              );
+            }
+          },
+        );
       },
     );
   }

@@ -16,14 +16,16 @@ class HomeRepoImple extends HomeViewRepo {
   });
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> fetchFeatcheredBooks() async {
+  Future<Either<Faluer, List<BookEntity>>> fetchFeatcheredBooks(
+      int pageNumber) async {
     List<BookEntity> books;
     try {
-      books = localDataSource.fetchFeatcheredBooks();
+      books = localDataSource.fetchFeatueredBooks(pageNumber: pageNumber);
       if (books.isNotEmpty) {
         return right(books);
       } else {
-        books = await remoteDataSourec.fetchFeatueredBooks();
+        books =
+            await remoteDataSourec.fetchFeatueredBooks(pageNumber: pageNumber);
       }
 
       return right(books);
@@ -36,14 +38,15 @@ class HomeRepoImple extends HomeViewRepo {
   }
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> fetchNewestBooks() async {
+  Future<Either<Faluer, List<BookEntity>>> fetchNewestBooks(
+      int pageNumber) async {
     List<BookEntity> books;
     try {
       books = localDataSource.fetchNewestBooks();
       if (books.isNotEmpty) {
         return right(books);
       } else {
-        books = await remoteDataSourec.fetchNewestBooks();
+        books = await remoteDataSourec.fetchNewestBooks(pageNumber: pageNumber);
       }
 
       return right(books);

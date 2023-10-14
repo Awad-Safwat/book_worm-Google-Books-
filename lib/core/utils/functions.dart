@@ -3,6 +3,8 @@ import 'package:book_worm/features/home/data/models/book_model/book_model/book_m
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/data/models/searched_book_model/searched_book_model.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 
 void saveBooksLocaly<type>(
@@ -30,4 +32,13 @@ List<SearchedBookEntity> extractingMapDataToListSearchFeature(
   }
 
   return extractedBooksList;
+}
+
+void showToast(String massage) {
+  Fluttertoast.showToast(
+      msg: massage,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0);
 }
