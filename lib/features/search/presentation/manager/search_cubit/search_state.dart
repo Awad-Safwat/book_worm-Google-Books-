@@ -13,8 +13,16 @@ final class SearchSucces extends SearchState {
 
 final class SearchLoading extends SearchState {}
 
+final class SearchPaginationLoading extends SearchState {}
+
 final class SearchFaluer extends SearchState {
   final String massage;
 
   SearchFaluer({required this.massage});
+}
+
+final class SearchPaginationFaluer extends SearchState {
+  final String massage;
+
+  SearchPaginationFaluer({required this.massage});
 }

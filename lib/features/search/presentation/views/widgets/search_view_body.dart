@@ -5,7 +5,7 @@ import 'package:book_worm/features/search/presentation/manager/search_cubit/sear
 import 'package:book_worm/features/search/presentation/views/widgets/history_body_bloc_builder.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_section.dart';
-import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_builder.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,6 +16,8 @@ class SearchViewBody extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    var historyCubit = BlocProvider.of<HistoryCubit>(context);
+    var searchCubit = BlocProvider.of<SearchCubit>(context);
     return SafeArea(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -23,11 +25,13 @@ class SearchViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
+            controller: searchCubit.textEditingController,
             onChanged: (value) {
               if (value.isEmpty) {
-                BlocProvider.of<HistoryCubit>(context).fecthHistory();
+                historyCubit.fecthHistory();
               } else {
-                BlocProvider.of<SearchCubit>(context).fetchSearchedBooks(value);
+                searchCubit.fullBooks.clear();
+                searchCubit.fetchSearchedBooks(value);
               }
             },
             decoration: InputDecoration(

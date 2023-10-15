@@ -6,7 +6,7 @@ import 'package:book_worm/features/search/domain/use_cases/fetch_searched_books_
 import 'package:book_worm/features/search/presentation/manager/history_cubit/history_cubit.dart';
 import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_view_body.dart';
-import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_builder.dart';
+import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

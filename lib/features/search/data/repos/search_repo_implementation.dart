@@ -33,10 +33,12 @@ class SearchRepoImplementation extends SearchViewRepo {
 
   @override
   Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks(
-      String? searchKey) async {
+      String? searchKey,
+      {int pageNumber = 0}) async {
     List<SearchedBookEntity> books;
     try {
-      books = await searchRemoteDataSource.fetchSearchedBooks(searchKey ?? '');
+      books = await searchRemoteDataSource.fetchSearchedBooks(searchKey ?? '',
+          pageNumber: pageNumber);
       return right(books);
     } catch (e) {
       if (e is DioException) {

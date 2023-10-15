@@ -4,7 +4,8 @@ import 'package:dartz/dartz.dart';
 
 abstract class SearchViewRepo {
   Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks(
-      String? searchKey);
+      String? searchKey,
+      {int pageNumber});
 
   Future<Either<Faluer, List<SearchedBookEntity>>> fetchHistorySearchedBooks();
 }
