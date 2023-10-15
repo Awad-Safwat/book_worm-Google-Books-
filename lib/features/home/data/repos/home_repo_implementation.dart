@@ -6,17 +6,17 @@ import 'package:book_worm/features/home/domain/repos/home_view_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class HomeRepoImple extends HomeViewRepo {
+class HomeViewRepoImple extends HomeViewRepo {
   final HomeLocalDataSourceImple localDataSource;
   final HomeRemoteDataSourceImpl remoteDataSourec;
 
-  HomeRepoImple({
+  HomeViewRepoImple({
     required this.localDataSource,
     required this.remoteDataSourec,
   });
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> fetchFeatcheredBooks(
+  Future<Either<Faluer, List<BookEntity>>> fetchFeaturedBooks(
       int pageNumber) async {
     List<BookEntity> books;
     try {
@@ -42,7 +42,7 @@ class HomeRepoImple extends HomeViewRepo {
       int pageNumber) async {
     List<BookEntity> books;
     try {
-      books = localDataSource.fetchNewestBooks();
+      books = localDataSource.fetchNewestBooks(pageNumber: pageNumber);
       if (books.isNotEmpty) {
         return right(books);
       } else {

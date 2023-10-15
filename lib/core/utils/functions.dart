@@ -42,3 +42,8 @@ void showToast(String massage) {
       timeInSecForIosWeb: 1,
       fontSize: 16.0);
 }
+
+void setupScrollController(BuildContext context,
+    ScrollController scrollController, void Function() listenerFunc) {
+  scrollController.addListener(listenerFunc);
+}

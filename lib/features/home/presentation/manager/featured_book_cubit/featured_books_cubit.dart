@@ -13,25 +13,13 @@ part 'featured_books_state.dart';
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.featcheredBooksUseCase)
       : super(FeaturedBooksInitial());
+  //
 
   final FetchFeatueredBooksUseCase featcheredBooksUseCase;
 
   List<BookEntity> featuredBooksLst = [];
 
   final scrollController = ScrollController();
-
-  void setupScrollController(
-      BuildContext context, ScrollController scrollController) {
-    scrollController.addListener(() {
-      if (scrollController.position.atEdge) {
-        if (scrollController.position.pixels != 0) {
-          BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(
-              pageNumber:
-                  BlocProvider.of<FeaturedBooksCubit>(context).pageNumber++);
-        }
-      }
-    });
-  }
 
   int pageNumber = 1;
 

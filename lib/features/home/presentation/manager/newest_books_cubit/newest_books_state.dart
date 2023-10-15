@@ -18,3 +18,11 @@ final class NewestBooksFalure extends NewestBooksState {
 
   NewestBooksFalure({required this.massage});
 }
+
+final class NewestBooksPaginationLoading extends NewestBooksState {}
+
+final class NewestBooksPaginationFalure extends NewestBooksState {
+  final String massage;
+
+  NewestBooksPaginationFalure({required this.massage});
+}

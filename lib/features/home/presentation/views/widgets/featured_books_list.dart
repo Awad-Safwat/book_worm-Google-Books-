@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
@@ -15,14 +16,27 @@ class FeatueredBooksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<FeaturedBooksCubit>(context).setupScrollController(
-        context, BlocProvider.of<FeaturedBooksCubit>(context).scrollController);
+    final scrollController =
+        BlocProvider.of<FeaturedBooksCubit>(context).scrollController;
+
+    setupScrollController(
+      context,
+      scrollController,
+      () {
+        if (scrollController.position.atEdge) {
+          if (scrollController.position.pixels != 0) {
+            BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(
+                pageNumber:
+                    BlocProvider.of<FeaturedBooksCubit>(context).pageNumber++);
+          }
+        }
+      },
+    );
 
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.16,
       child: ListView.builder(
-        controller:
-            BlocProvider.of<FeaturedBooksCubit>(context).scrollController,
+        controller: scrollController,
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: Axis.horizontal,
         itemBuilder: (contxt, index) {

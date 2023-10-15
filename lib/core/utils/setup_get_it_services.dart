@@ -16,8 +16,8 @@ void settingUpGetItServices() {
       dio: Dio(),
     ),
   );
-  getIt.registerSingleton<HomeRepoImple>(
-    HomeRepoImple(
+  getIt.registerSingleton<HomeViewRepoImple>(
+    HomeViewRepoImple(
       localDataSource: HomeLocalDataSourceImple(),
       remoteDataSourec: HomeRemoteDataSourceImpl(
         apiService: getIt.get<ApiService>(),

@@ -5,8 +5,8 @@ import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loadi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FeatueredBooksListBlocBuilder extends StatelessWidget {
-  const FeatueredBooksListBlocBuilder({
+class FeatueredBooksListBlocConsumer extends StatelessWidget {
+  const FeatueredBooksListBlocConsumer({
     super.key,
   });
 
@@ -14,12 +14,6 @@ class FeatueredBooksListBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<FeaturedBooksCubit, FeaturedBooksState>(
       listener: (context, state) {
-        if (state is FeaturedBooksSucsess) {
-          BlocProvider.of<FeaturedBooksCubit>(context)
-              .featuredBooksLst
-              .addAll(state.books);
-        }
-
         if (state is FeaturedBooksFalure) {
           showToast(state.massage);
         }
