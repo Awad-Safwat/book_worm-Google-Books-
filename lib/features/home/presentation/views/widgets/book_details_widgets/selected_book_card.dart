@@ -51,7 +51,9 @@ class SelectedBookCard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                const RatingSection(),
+                RatingSection(
+                  book: book,
+                ),
               ],
             ),
           ),

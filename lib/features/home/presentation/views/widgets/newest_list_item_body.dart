@@ -50,7 +50,9 @@ class NewstListItemBody extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '5.0',
+                    (book.rating != null)
+                        ? book.rating!.toDouble().toString()
+                        : "1.0",
                     style: Styels.textStyle10.copyWith(
                       fontWeight: FontWeight.bold,
                       color: const Color(0xffF24F09),
@@ -65,8 +67,13 @@ class NewstListItemBody extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                r'$' ' 45.87',
+                (book.price == null || book.price == '0')
+                    ? 'Free'
+                    : '${book.price!} EGP',
                 style: Styels.textStyle14.copyWith(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                width: 5,
               )
             ],
           ),

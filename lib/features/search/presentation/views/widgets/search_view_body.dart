@@ -6,6 +6,7 @@ import 'package:book_worm/features/search/presentation/views/widgets/history_bod
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_section.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_view_body_bloc_consumer.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,6 +28,14 @@ class SearchViewBody extends StatelessWidget {
           TextField(
             controller: searchCubit.textEditingController,
             onChanged: (value) {
+              if (value.isEmpty) {
+                historyCubit.fecthHistory();
+              } else {
+                searchCubit.fullBooks.clear();
+                searchCubit.fetchSearchedBooks(value);
+              }
+            },
+            onSubmitted: (value) {
               if (value.isEmpty) {
                 historyCubit.fecthHistory();
               } else {

@@ -30,7 +30,9 @@ class PriceButtonSection extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                r"$ 45.5",
+                (book.price == null || book.price == '0')
+                    ? 'Free'
+                    : '${book.price!} EGP',
                 style: Styels.textStyle18.copyWith(color: Colors.black),
               ),
               const Spacer(),

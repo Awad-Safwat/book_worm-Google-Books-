@@ -34,7 +34,7 @@ class BookModel extends BookEntity {
           authorName: volumeInfo?.authors?[0],
           authorImage: null,
           bookDiscreption: volumeInfo?.description,
-          price: saleInfo?.saleability,
+          price: saleInfo?.listPrice?.amount.toString(),
         );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
