@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/features/main_app_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/book_details_view.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
@@ -18,11 +19,15 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (context, state) =>
-            showHome ? const HomeView() : const OnBoardView(),
+            showHome ? const MainAppBody() : const OnBoardView(),
       ),
       GoRoute(
         path: AppStrings.kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: AppStrings.kMainAppBody,
+        builder: (context, state) => const MainAppBody(),
       ),
       // GoRoute(
       //     path: AppStrings.kBookDetailsView,

@@ -34,7 +34,7 @@ class SearchedBookModel extends SearchedBookEntity {
           authorName: volumeInfo?.authors?[0],
           authorImage: null,
           bookDiscreption: volumeInfo?.description,
-          price: saleInfo?.saleability,
+          price: saleInfo?.listPrice?.amount.toString(),
         );
 
   factory SearchedBookModel.fromJson(Map<String, dynamic> json) {
