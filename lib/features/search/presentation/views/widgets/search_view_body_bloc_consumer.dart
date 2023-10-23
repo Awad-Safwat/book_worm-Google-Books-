@@ -19,7 +19,6 @@ class SearchViewBodyBlocBuilder extends StatelessWidget {
           showToast(state.massage);
         }
         if (state is SearchPaginationFaluer) {
-          print(state.massage);
           showToast(state.massage);
         }
       },

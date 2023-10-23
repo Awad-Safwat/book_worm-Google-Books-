@@ -26,9 +26,6 @@ class SearchCubit extends Cubit<SearchState> {
       isLoading = true;
       emit(SearchPaginationLoading());
     }
-    if (searchKey!.isEmpty) {
-      emit(SearchFaluer(massage: ''));
-    }
     Either<Faluer, List<SearchedBookEntity>> books =
         await fetchSearchedBooksUseCase
             .call({'searchKey': searchKey, 'pageNumber': pageNumber});

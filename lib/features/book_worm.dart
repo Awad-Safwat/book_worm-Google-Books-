@@ -61,6 +61,7 @@ class BookWorm extends StatelessWidget {
           ),
           colorScheme: ThemeData().colorScheme.copyWith(
                 primary: Colors.white,
+                background: Colors.transparent,
               ),
         ),
         themeMode: ThemeMode.system,

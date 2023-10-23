@@ -20,53 +20,54 @@ class SearchViewBody extends StatelessWidget {
     var historyCubit = BlocProvider.of<HistoryCubit>(context);
     var searchCubit = BlocProvider.of<SearchCubit>(context);
     return SafeArea(
+        bottom: false,
         child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextField(
-            controller: searchCubit.textEditingController,
-            onChanged: (value) {
-              if (value.isEmpty) {
-                historyCubit.fecthHistory();
-              } else {
-                searchCubit.fullBooks.clear();
-                searchCubit.fetchSearchedBooks(value);
-              }
-            },
-            onSubmitted: (value) {
-              if (value.isEmpty) {
-                historyCubit.fecthHistory();
-              } else {
-                searchCubit.fullBooks.clear();
-                searchCubit.fetchSearchedBooks(value);
-              }
-            },
-            decoration: InputDecoration(
-              hintText: "Search",
-              suffixIcon: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 25,
+          padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: searchCubit.textEditingController,
+                onChanged: (value) {
+                  if (value.isEmpty) {
+                    historyCubit.fecthHistory();
+                  } else {
+                    searchCubit.fullBooks.clear();
+                    searchCubit.fetchSearchedBooks(value);
+                  }
+                },
+                onSubmitted: (value) {
+                  if (value.isEmpty) {
+                    historyCubit.fecthHistory();
+                  } else {
+                    searchCubit.fullBooks.clear();
+                    searchCubit.fetchSearchedBooks(value);
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  suffixIcon: const Icon(
+                    FontAwesomeIcons.magnifyingGlass,
+                    size: 25,
+                  ),
+                  enabledBorder: myInputBorder(context),
+                  focusedBorder: myInputBorder(context),
+                ),
               ),
-              enabledBorder: myInputBorder(context),
-              focusedBorder: myInputBorder(context),
-            ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                'Search Result',
+                style: Styels.textStyle18,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const SearchViewBodyBlocBuilder(),
+            ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            'Search Result',
-            style: Styels.textStyle18,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const SearchViewBodyBlocBuilder(),
-        ],
-      ),
-    ));
+        ));
   }
 
   OutlineInputBorder myInputBorder(BuildContext context) {
