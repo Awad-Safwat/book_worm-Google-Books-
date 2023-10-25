@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
 import 'package:book_worm/features/main_app_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/book_details_view.dart';
@@ -29,14 +30,11 @@ abstract class AppRouter {
         path: AppStrings.kMainAppBody,
         builder: (context, state) => const MainAppBody(),
       ),
-      // GoRoute(
-      //     path: AppStrings.kBookDetailsView,
-      //     builder: (context, state) {
-      //       BookEntity book = state.extra as BookEntity;
-      //       return BookDetailsView(
-      //         book: book,
-      //       );
-      //     }),
+      GoRoute(
+          path: AppStrings.kSignInView,
+          builder: (context, state) {
+            return SignInView();
+          }),
       GoRoute(
         path: AppStrings.kSearchView,
         builder: (context, state) => const SearchView(),
