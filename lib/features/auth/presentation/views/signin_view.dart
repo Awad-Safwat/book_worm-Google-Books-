@@ -1,34 +1,38 @@
+import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInView extends StatelessWidget {
-  SignInView({super.key});
-  GoogleSignIn googleSignIn =
-      GoogleSignIn(scopes: ["https://www.googleapis.com/auth/books"]);
+  const SignInView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: MaterialButton(
-          color: Colors.blue,
-          onPressed: () async {
-            await googleSignIn.signIn().then((result) {
-              result!.authentication.then((googleKey) {
-                print(googleKey.accessToken);
-                print(googleKey.idToken);
-                print(result.displayName);
-                print(result.email);
-                print(result.id);
-              }).catchError((er) {
-                print(er);
-              });
-            }).catchError((er) {
-              print(er);
-            });
-            GoogleSignIn(scopes: []);
-          },
-          child: const Text('Sign In'),
-        ),
+      body: Column(
+        children: [
+          BlocBuilder<SignInCubit, SignInState>(
+            builder: (context, state) {
+              if (state is SignInFaluer) {
+                print(state.massage);
+                return const Center(
+                  child: Text('errroooooorrrrrr'),
+                );
+              } else if (state is SignInSuccess) {
+                return Center(
+                  child: Column(
+                    children: [
+                      Text(state.userData.userName),
+                      Text(state.userData.email),
+                    ],
+                  ),
+                );
+              } else {
+                return const CircularProgressIndicator();
+              }
+            },
+          ),
+        ],
       ),
     );
   }

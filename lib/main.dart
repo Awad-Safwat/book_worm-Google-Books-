@@ -3,6 +3,7 @@ import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/bloc_observer/app_bloc_observer.dart';
 import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/setup_get_it_services.dart';
+import 'package:book_worm/features/auth/domain/entities/user_entity/user_entity.dart';
 import 'package:book_worm/features/book_worm.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
@@ -21,9 +22,12 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   Hive.registerAdapter(SearchedBookEntityAdapter());
+  Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<BookEntity>(AppStrings.kFeatueredBox);
   await Hive.openBox<BookEntity>(AppStrings.kNewestBox);
   await Hive.openBox<SearchedBookEntity>(AppStrings.kHistoryBox);
+  await Hive.openBox<UserEntity>(AppStrings.kHiUserDataBox);
+  await Hive.openBox<bool>(AppStrings.kHiIsLogedBeforeBox);
 
   runApp(const BookWorm());
 }

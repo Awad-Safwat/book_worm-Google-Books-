@@ -9,4 +9,6 @@ class AppStrings {
   static const kSearchedBookDetailsView = '/SearchedBookDetailsView';
   static const kMainAppBody = '/MainAppBody';
   static const kSignInView = '/SignInView';
+  static const kHiUserDataBox = 'userDataBox';
+  static const kHiIsLogedBeforeBox = 'isLogedBeforeBox';
 }

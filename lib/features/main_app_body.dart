@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:book_worm/core/utils/app_colors.dart';
+import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MainAppBody extends StatefulWidget {
@@ -44,6 +46,9 @@ class _MainAppBodyState extends State<MainAppBody> {
                 duration: const Duration(milliseconds: 400),
                 selectedIndex: selectedViewindex,
                 onTabChange: (index) {
+                  if (index == 2) {
+                    BlocProvider.of<SignInCubit>(context).signInGoogle();
+                  }
                   setState(() {
                     selectedViewindex = index;
                   });
@@ -60,7 +65,7 @@ class _MainAppBodyState extends State<MainAppBody> {
 List<Widget> screensList = [
   const HomeView(),
   const SearchView(),
-  SignInView(),
+  const SignInView(),
 ];
 
 List<GButton> navBarsItems = [

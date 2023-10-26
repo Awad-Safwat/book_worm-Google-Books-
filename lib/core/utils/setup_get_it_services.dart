@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/api_service.dart';
+import 'package:book_worm/features/auth/data/repo_imple/auth_repo_imple.dart';
 import 'package:book_worm/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:book_worm/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
@@ -24,6 +25,7 @@ void settingUpGetItServices() {
       ),
     ),
   );
+  getIt.registerSingleton<AuthRepoImpel>(AuthRepoImpel());
 
   getIt.registerSingleton<SearchRepoImplementation>(SearchRepoImplementation(
     searchLocalDataSource: SearchLocalDataSourceImple(),

@@ -1,5 +1,8 @@
 import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/setup_get_it_services.dart';
+import 'package:book_worm/features/auth/data/repo_imple/auth_repo_imple.dart';
+import 'package:book_worm/features/auth/domain/use_case/sign_in_google_use_case.dart';
+import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_featchered_books_usecase.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_newest_books_usecase.dart';
@@ -24,6 +27,12 @@ class BookWorm extends StatelessWidget {
               homeRepo: getIt.get<HomeViewRepoImple>(),
             ),
           )..fetchFeaturedBooks(),
+        ),
+        BlocProvider(
+          create: (context) => SignInCubit(
+              signInGoogleUseCase: SignInGoogleUseCase(
+            authRepoImpel: getIt.get<AuthRepoImpel>(),
+          )),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(

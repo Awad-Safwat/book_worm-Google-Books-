@@ -1,4 +1,6 @@
 import 'package:book_worm/core/utils/app_colors.dart';
+import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/features/auth/domain/entities/user_entity/user_entity.dart';
 import 'package:book_worm/features/home/data/models/book_model/book_model/book_model.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/data/models/searched_book_model/searched_book_model.dart';
@@ -11,6 +13,27 @@ void saveBooksLocaly<type>(
     {required Set<type> extractedBooksList, required String boxName}) {
   var box = Hive.box<type>(boxName);
   box.addAll(extractedBooksList);
+}
+
+void saveUserDataLocaly({required UserEntity userData}) {
+  var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
+  box.clear();
+  box.add(userData);
+}
+
+void userSignedIn() {
+  var box = Hive.box<bool>(AppStrings.kHiIsLogedBeforeBox);
+  box.clear();
+  box.add(true);
+}
+
+bool isLogedBefore() {
+  var box = Hive.box<bool>(AppStrings.kHiIsLogedBeforeBox);
+  if (box.values.first) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // func to extract books from json response to a list
