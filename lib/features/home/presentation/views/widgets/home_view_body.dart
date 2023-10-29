@@ -34,12 +34,18 @@ class HomeViewBody extends StatelessWidget {
 
     return Column(
       children: [
-        const HomeViewAppBar(),
-        const BookOfTheWeekCardBlocBuilder(),
+        // const HomeViewAppBar(),
+        // const BookOfTheWeekCardBlocBuilder(),
         Expanded(
           child: CustomScrollView(
             controller: scrollController,
             slivers: const [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: BookOfTheWeekCardBlocBuilder(),
+                ),
+              ),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.only(left: 15),

@@ -4,6 +4,7 @@ import 'package:book_worm/features/main_app_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/book_details_view.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
+import 'package:book_worm/features/my_books/presentation/view/my_books_view.dart';
 //import 'package:book_worm/features/home/presentation/views/widgets/book_web_view.dart';
 import 'package:book_worm/features/onboarding/presentation/views/onboard_view.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
@@ -27,13 +28,17 @@ abstract class AppRouter {
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
+        path: AppStrings.kMyBooksView,
+        builder: (context, state) => const MyBooksView(),
+      ),
+      GoRoute(
         path: AppStrings.kMainAppBody,
         builder: (context, state) => const MainAppBody(),
       ),
       GoRoute(
           path: AppStrings.kSignInView,
           builder: (context, state) {
-            return SignInView();
+            return const SignInView();
           }),
       GoRoute(
         path: AppStrings.kSearchView,

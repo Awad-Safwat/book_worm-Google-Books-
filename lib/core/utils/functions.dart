@@ -36,6 +36,12 @@ bool isLogedBefore() {
   }
 }
 
+String getAccessToken() {
+  var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
+  String accessToken = box.get(0)!.userAccessToken.toString();
+  return accessToken;
+}
+
 // func to extract books from json response to a list
 List<BookEntity> extractingMapDataToListForHomeFeature(
     Map<String, dynamic> response) {

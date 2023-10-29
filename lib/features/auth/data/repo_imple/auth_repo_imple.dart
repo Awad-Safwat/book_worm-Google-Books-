@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepoImpel extends AuthRepo {
-  GoogleSignIn googleSignIn =
+  static GoogleSignIn googleSignIn =
       GoogleSignIn(scopes: ["https://www.googleapis.com/auth/books"]);
 
   @override
@@ -42,5 +42,16 @@ class AuthRepoImpel extends AuthRepo {
         ),
       );
     }
+  }
+
+  @override
+  Future<bool> canAccessToken() async {
+    String accessToken = getAccessToken();
+
+    var canAccess = await googleSignIn.canAccessScopes(
+        ["https://www.googleapis.com/auth/books"],
+        accessToken: accessToken);
+
+    return canAccess;
   }
 }

@@ -5,4 +5,5 @@ import 'package:dartz/dartz.dart';
 abstract class AuthRepo {
   Future<Either<Faluer, UserEntity>> singInWithGoogle(int isFirstTime);
   void signOut();
+  Future<bool> canAccessToken();
 }

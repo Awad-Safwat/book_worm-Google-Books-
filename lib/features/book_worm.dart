@@ -30,9 +30,10 @@ class BookWorm extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SignInCubit(
+              repoImpel: getIt.get<AuthRepoImpel>(),
               signInGoogleUseCase: SignInGoogleUseCase(
-            authRepoImpel: getIt.get<AuthRepoImpel>(),
-          )),
+                authRepoImpel: getIt.get<AuthRepoImpel>(),
+              )),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(

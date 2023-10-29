@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeViewAppBar extends StatelessWidget {
-  const HomeViewAppBar({
+class MainAppBar extends StatelessWidget {
+  const MainAppBar({
+    required this.title,
     super.key,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,8 +22,8 @@ class HomeViewAppBar extends StatelessWidget {
           FontAwesomeIcons.bars,
           size: 28,
         ),
-        title: const Text(
-          'Book of the week',
+        title: Text(
+          title,
           style: Styels.textStyle20, //copyWith(fontFamily: 'HKGrotesk'),
         ),
         centerTitle: true,

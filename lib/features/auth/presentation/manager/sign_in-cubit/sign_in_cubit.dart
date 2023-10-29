@@ -11,7 +11,9 @@ part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   final SignInGoogleUseCase signInGoogleUseCase;
-  SignInCubit({required this.signInGoogleUseCase}) : super(SignInInitial());
+  final AuthRepoImpel repoImpel;
+  SignInCubit({required this.repoImpel, required this.signInGoogleUseCase})
+      : super(SignInInitial());
 
   void signInGoogle() async {
     emit(SignInLoading());
@@ -22,5 +24,10 @@ class SignInCubit extends Cubit<SignInState> {
     }, (userData) {
       emit(SignInSuccess(userData: userData));
     });
+  }
+
+  Future<bool> canAccessToke() async {
+    bool canAccessToken = await repoImpel.canAccessToken();
+    return canAccessToken;
   }
 }

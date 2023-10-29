@@ -11,4 +11,5 @@ class AppStrings {
   static const kSignInView = '/SignInView';
   static const kHiUserDataBox = 'userDataBox';
   static const kHiIsLogedBeforeBox = 'isLogedBeforeBox';
+  static const kMyBooksView = '/kMyBooksView';
 }

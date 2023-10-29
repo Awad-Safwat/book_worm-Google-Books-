@@ -16,6 +16,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       extendBody: true,
       extendBodyBehindAppBar: true,
       body: MultiBlocProvider(providers: [

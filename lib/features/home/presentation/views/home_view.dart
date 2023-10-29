@@ -8,21 +8,13 @@ class HomeView extends StatelessWidget {
   const HomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: Colors.transparent,
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: (AppColors.gitBritness(context) == Brightness.light)
-                ? const Svg(AssetsData.homeBackgroundImage)
-                : const Svg(AssetsData.homeBackgroundImageDarkTheme),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: const HomeViewBody(),
+      body: Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: HomeViewBody(),
       ),
     );
   }
