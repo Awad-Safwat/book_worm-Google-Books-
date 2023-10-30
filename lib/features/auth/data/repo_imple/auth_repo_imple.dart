@@ -32,7 +32,6 @@ class AuthRepoImpel extends AuthRepo {
         userImageUrl: account.photoUrl!,
         userAccessToken: accountAuth!.accessToken!,
       );
-      userSignedIn();
       saveUserDataLocaly(userData: userData);
       return right(userData);
     } catch (error) {
@@ -46,7 +45,7 @@ class AuthRepoImpel extends AuthRepo {
 
   @override
   Future<bool> canAccessToken() async {
-    String accessToken = getAccessToken();
+    String? accessToken = getAccessToken();
 
     var canAccess = await googleSignIn.canAccessScopes(
         ["https://www.googleapis.com/auth/books"],

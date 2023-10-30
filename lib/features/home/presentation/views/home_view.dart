@@ -12,10 +12,7 @@ class HomeView extends StatelessWidget {
       backgroundColor: Colors.transparent,
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: Padding(
-        padding: EdgeInsets.only(top: 20),
-        child: HomeViewBody(),
-      ),
+      body: HomeViewBody(),
     );
   }
 }

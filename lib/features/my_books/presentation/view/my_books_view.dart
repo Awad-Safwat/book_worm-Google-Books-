@@ -16,6 +16,7 @@ class _MyBooksViewState extends State<MyBooksView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,6 +26,7 @@ class _MyBooksViewState extends State<MyBooksView> {
           ),
           MaterialButton(
             onPressed: () {
+              print(getAccessToken());
               setState(() {
                 //  access = canAccess;
               });

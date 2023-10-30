@@ -17,28 +17,13 @@ void saveBooksLocaly<type>(
 
 void saveUserDataLocaly({required UserEntity userData}) {
   var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
-  box.clear();
-  box.add(userData);
+  box.putAt(0, userData);
 }
 
-void userSignedIn() {
-  var box = Hive.box<bool>(AppStrings.kHiIsLogedBeforeBox);
-  box.clear();
-  box.add(true);
-}
-
-bool isLogedBefore() {
-  var box = Hive.box<bool>(AppStrings.kHiIsLogedBeforeBox);
-  if (box.values.first) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-String getAccessToken() {
+String? getAccessToken() {
   var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
-  String accessToken = box.get(0)!.userAccessToken.toString();
+  String accessToken = box.getAt(0)!.userAccessToken.toString();
+  print(accessToken);
   return accessToken;
 }
 
