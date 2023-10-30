@@ -28,8 +28,7 @@ String? getAccessToken() {
 }
 
 // func to extract books from json response to a list
-List<BookEntity> extractingMapDataToListForHomeFeature(
-    Map<String, dynamic> response) {
+List<BookEntity> extractingMapDataToList(Map<String, dynamic> response) {
   List<BookEntity> extractedBooksList = [];
   for (Map<String, dynamic> element in response['items']) {
     extractedBooksList.add(BookModel.fromJson(element));

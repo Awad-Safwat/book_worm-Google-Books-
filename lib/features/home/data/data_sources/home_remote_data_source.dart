@@ -18,8 +18,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint:
             'volumes?q=mental%20health&orderBy=newest&startIndex=${pageNumber * 10}');
 
-    List<BookEntity> extractedBooksList =
-        extractingMapDataToListForHomeFeature(response);
+    List<BookEntity> extractedBooksList = extractingMapDataToList(response);
 
     saveBooksLocaly<BookEntity>(
       extractedBooksList: extractedBooksList.toSet(),
@@ -35,8 +34,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         endPoint:
             'volumes?q=programming&orderBy=newest&startIndex=${pageNumber * 10}');
 
-    List<BookEntity> extractedBooksList =
-        extractingMapDataToListForHomeFeature(response);
+    List<BookEntity> extractedBooksList = extractingMapDataToList(response);
 
     saveBooksLocaly(
       extractedBooksList: extractedBooksList.toSet(),
