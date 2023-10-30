@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 
 abstract class FavoritesRepos {
   Either<Faluer, List<BookEntity>> getFavoritesBooks({required int pageNumber});
-  Either<Faluer, List<BookEntity>> addToFavoritesBooks(
-      {required int pageNumber, required String bookId});
+  Either<Faluer, int> addToFavoritesBooks({required String bookId});
   Either<Faluer, int> deleteFromFavoritesBooks({required String bookId});
 }
