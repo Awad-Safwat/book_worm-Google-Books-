@@ -17,7 +17,8 @@ class SignInCubit extends Cubit<SignInState> {
 
   void signInGoogle() async {
     emit(SignInLoading());
-    Either<Faluer, UserEntity> userData = await signInGoogleUseCase.call();
+    Either<ServerFalure, UserEntity> userData =
+        await signInGoogleUseCase.call();
 
     userData.fold((faluer) {
       emit(SignInFaluer(massage: faluer.massege));

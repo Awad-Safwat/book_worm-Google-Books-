@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 
-abstract class Faluer {
+abstract class Falure {
   final String massege;
 
-  Faluer({required this.massege});
+  Falure({required this.massege});
 }
 
-class ServerFalure extends Faluer {
+class ServerFalure extends Falure {
   ServerFalure({required super.massege});
 
   factory ServerFalure.fromDioError(DioException e) {
@@ -39,6 +39,8 @@ class ServerFalure extends Faluer {
     } else if (responseStatuseCode >= 400) {
       return ServerFalure(
           massege: 'there is an error from the client side or page not found');
+    } else if (responseStatuseCode == 401) {
+      return ServerFalure(massege: '401');
     } else {
       return ServerFalure(massege: 'There is an error calld $responseBody');
     }

@@ -9,7 +9,7 @@ class FetchHistoryUseCase extends UseCase<List<SearchedBookEntity>, NoParam> {
 
   FetchHistoryUseCase({required this.searchViewRepo});
   @override
-  Future<Either<Faluer, List<SearchedBookEntity>>> call(
+  Future<Either<ServerFalure, List<SearchedBookEntity>>> call(
       [NoParam? pragma]) async {
     return await searchViewRepo.fetchHistorySearchedBooks();
   }

@@ -14,7 +14,9 @@ final class FavoritesCubitSuccess extends FavoritesCubitState {
 }
 
 final class FavoritesCubitFailure extends FavoritesCubitState {
-  final String massage;
+  final ServerFalure faluer;
 
-  FavoritesCubitFailure({required this.massage});
+  FavoritesCubitFailure({required this.faluer});
 }
+
+final class FavoritesCubitNotAuthorized extends FavoritesCubitState {}

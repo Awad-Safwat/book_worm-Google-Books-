@@ -10,7 +10,7 @@ class FetchSearchedBooksUseCase
 
   FetchSearchedBooksUseCase({required this.searchViewRepo});
   @override
-  Future<Either<Faluer, List<SearchedBookEntity>>> call(
+  Future<Either<ServerFalure, List<SearchedBookEntity>>> call(
       [Map<String, dynamic>? paramsMap]) async {
     return await searchViewRepo.fetchSearchedBooks(
       paramsMap?['searchKey'],

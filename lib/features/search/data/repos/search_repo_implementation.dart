@@ -16,7 +16,7 @@ class SearchRepoImplementation extends SearchViewRepo {
       required this.searchRemoteDataSource});
 
   @override
-  Future<Either<Faluer, List<SearchedBookEntity>>>
+  Future<Either<ServerFalure, List<SearchedBookEntity>>>
       fetchHistorySearchedBooks() async {
     List<SearchedBookEntity> books;
     try {
@@ -32,7 +32,7 @@ class SearchRepoImplementation extends SearchViewRepo {
   }
 
   @override
-  Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks(
+  Future<Either<ServerFalure, List<SearchedBookEntity>>> fetchSearchedBooks(
       String? searchKey,
       {int pageNumber = 0}) async {
     List<SearchedBookEntity> books;

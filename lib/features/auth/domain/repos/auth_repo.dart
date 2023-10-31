@@ -3,7 +3,7 @@ import 'package:book_worm/features/auth/domain/entities/user_entity/user_entity.
 import 'package:dartz/dartz.dart';
 
 abstract class AuthRepo {
-  Future<Either<Faluer, UserEntity>> singInWithGoogle(int isFirstTime);
+  Future<Either<ServerFalure, UserEntity>> singInWithGoogle(int isFirstTime);
   void signOut();
   Future<bool> canAccessToken();
 }

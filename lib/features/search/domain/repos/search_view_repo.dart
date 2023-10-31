@@ -3,9 +3,10 @@ import 'package:book_worm/features/search/domain/entities/searched_book_entity.d
 import 'package:dartz/dartz.dart';
 
 abstract class SearchViewRepo {
-  Future<Either<Faluer, List<SearchedBookEntity>>> fetchSearchedBooks(
+  Future<Either<ServerFalure, List<SearchedBookEntity>>> fetchSearchedBooks(
       String? searchKey,
       {int pageNumber});
 
-  Future<Either<Faluer, List<SearchedBookEntity>>> fetchHistorySearchedBooks();
+  Future<Either<ServerFalure, List<SearchedBookEntity>>>
+      fetchHistorySearchedBooks();
 }

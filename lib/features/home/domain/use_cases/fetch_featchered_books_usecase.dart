@@ -10,7 +10,7 @@ class FetchFeatueredBooksUseCase extends UseCase<List<BookEntity>, int> {
   FetchFeatueredBooksUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> call([int? pageNumber]) async {
+  Future<Either<ServerFalure, List<BookEntity>>> call([int? pageNumber]) async {
     return await homeRepo.fetchFeaturedBooks(pageNumber ?? 0);
   }
 }

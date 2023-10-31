@@ -30,7 +30,7 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
       emit(FeaturedBooksPaginationLoading());
     }
 
-    Either<Faluer, List<BookEntity>> books =
+    Either<ServerFalure, List<BookEntity>> books =
         await featcheredBooksUseCase.call(pageNumber);
 
     books.fold(

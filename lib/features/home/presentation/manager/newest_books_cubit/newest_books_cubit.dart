@@ -25,7 +25,7 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
       emit(NewestBooksPaginationLoading());
     }
 
-    Either<Faluer, List<BookEntity>> books =
+    Either<ServerFalure, List<BookEntity>> books =
         await newestBooksUseCase.call(pageNumber);
 
     books.fold((faluer) {

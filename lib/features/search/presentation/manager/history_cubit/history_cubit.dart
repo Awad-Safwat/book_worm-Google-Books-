@@ -14,7 +14,7 @@ class HistoryCubit extends Cubit<HistoryState> {
 
   fecthHistory() async {
     emit(HistoryLoading());
-    Either<Faluer, List<SearchedBookEntity>> books =
+    Either<ServerFalure, List<SearchedBookEntity>> books =
         await fetchHistoryUseCase.call();
 
     books.fold((Faluer) {

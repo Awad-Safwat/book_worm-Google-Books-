@@ -10,7 +10,7 @@ class SignInGoogleUseCase extends UseCase<UserEntity, NoParam> {
   SignInGoogleUseCase({required this.authRepoImpel});
 
   @override
-  Future<Either<Faluer, UserEntity>> call([NoParam? param]) async {
+  Future<Either<ServerFalure, UserEntity>> call([NoParam? param]) async {
     return await authRepoImpel.singInWithGoogle(0);
   }
 }

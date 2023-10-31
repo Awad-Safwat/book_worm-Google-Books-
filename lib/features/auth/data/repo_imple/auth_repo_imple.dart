@@ -15,7 +15,8 @@ class AuthRepoImpel extends AuthRepo {
   }
 
   @override
-  Future<Either<Faluer, UserEntity>> singInWithGoogle(int isFirstTime) async {
+  Future<Either<ServerFalure, UserEntity>> singInWithGoogle(
+      int isFirstTime) async {
     try {
       GoogleSignInAccount? account =
           await googleSignIn.signIn().catchError((er) {

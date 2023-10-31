@@ -16,7 +16,7 @@ class HomeViewRepoImple extends HomeViewRepo {
   });
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> fetchFeaturedBooks(
+  Future<Either<ServerFalure, List<BookEntity>>> fetchFeaturedBooks(
       int pageNumber) async {
     List<BookEntity> books;
     try {
@@ -38,7 +38,7 @@ class HomeViewRepoImple extends HomeViewRepo {
   }
 
   @override
-  Future<Either<Faluer, List<BookEntity>>> fetchNewestBooks(
+  Future<Either<ServerFalure, List<BookEntity>>> fetchNewestBooks(
       int pageNumber) async {
     List<BookEntity> books;
     try {

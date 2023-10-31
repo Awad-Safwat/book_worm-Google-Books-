@@ -9,7 +9,7 @@ class DeleteFromFavoritesUseCase extends UseCase<int, String> {
   DeleteFromFavoritesUseCase({required this.favoritesRepos});
 
   @override
-  Future<Either<Faluer, int>> call([String? bookId]) async {
+  Future<Either<ServerFalure, int>> call([String? bookId]) async {
     // {'pageNumber': pageNumber,'bookId':bookId}
     return favoritesRepos.deleteFromFavoritesBooks(bookId: bookId!);
   }
