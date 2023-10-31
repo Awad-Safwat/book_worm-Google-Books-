@@ -12,4 +12,5 @@ class AppStrings {
   static const kHiUserDataBox = 'userDataBox';
   static const kHiIsLogedBeforeBox = 'isLogedBeforeBox';
   static const kMyBooksView = '/kMyBooksView';
+  static const kFavoritesBooksView = '/kFavoritesBooksView';
 }

@@ -22,7 +22,7 @@ class FavoritesReposImple extends FavoritesRepos {
   }
 
   @override
-  Future<Either<Faluer, Future<List<BookEntity>>>> getFavoritesBooks(
+  Future<Either<Faluer, List<BookEntity>>> getFavoritesBooks(
       {required int pageNumber}) async {
     try {
       var books = await favoritesRemDSourceImple.getFavoritesBooks();

@@ -1,5 +1,6 @@
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
+import 'package:book_worm/features/favorites/presentation/views/favorites_view.dart';
 import 'package:book_worm/features/main_app_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/book_details_view.dart';
@@ -26,6 +27,10 @@ abstract class AppRouter {
       GoRoute(
         path: AppStrings.kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: AppStrings.kFavoritesBooksView,
+        builder: (context, state) => const FavoritesView(),
       ),
       GoRoute(
         path: AppStrings.kMyBooksView,

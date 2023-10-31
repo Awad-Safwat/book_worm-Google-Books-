@@ -5,6 +5,7 @@ import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
+import 'package:book_worm/features/favorites/presentation/views/favorites_view.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:book_worm/features/my_books/presentation/view/my_books_view.dart';
@@ -40,10 +41,10 @@ class _MainAppBodyState extends State<MainAppBody> {
           ),
         ),
         child: Stack(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
           children: [
             Positioned.fill(
-              top: 90,
+              top: 100,
               child: Container(
                 child: screensList.elementAt(selectedViewindex),
               ),
@@ -78,7 +79,7 @@ class _MainAppBodyState extends State<MainAppBody> {
                 selectedIndex: selectedViewindex,
                 onTabChange: (index) async {
                   if (index == 2) {
-                    BlocProvider.of<SignInCubit>(context).signInGoogle();
+                    // BlocProvider.of<SignInCubit>(context).signInGoogle();
                   }
                   setState(() {
                     selectedViewindex = index;
@@ -96,7 +97,7 @@ class _MainAppBodyState extends State<MainAppBody> {
 List<Widget> screensList = [
   const HomeView(),
   const SearchView(),
-  const SignInView(),
+  const FavoritesView(),
   const MyBooksView(),
 ];
 

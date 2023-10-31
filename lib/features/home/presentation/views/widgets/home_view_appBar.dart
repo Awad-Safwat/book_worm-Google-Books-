@@ -1,3 +1,4 @@
+import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
@@ -24,7 +25,7 @@ class MainAppBar extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: Styels.textStyle20, //copyWith(fontFamily: 'HKGrotesk'),
+          style: Styels.textStyle20.copyWith(color: AppColors.primaryColor),
         ),
         centerTitle: true,
         actions: [

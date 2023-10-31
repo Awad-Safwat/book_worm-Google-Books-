@@ -16,7 +16,7 @@ class ApiService {
       return response.data;
     } else {
       var response = await _dio
-          .get('$baseUrl$endPoint/${shilfId ?? 0}?access_token=$accessToken');
+          .get('$baseUrl$endPoint${shilfId ?? 0}?access_token=$accessToken');
       return response.data;
     }
   }
