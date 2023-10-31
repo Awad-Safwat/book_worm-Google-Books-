@@ -35,4 +35,6 @@ class FavoritesCubit extends Cubit<FavoritesCubitState> {
       },
     );
   }
+
+  void justEmitLoading() => emit(FavoritesCubitLoading());
 }

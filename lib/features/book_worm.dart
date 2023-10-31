@@ -5,7 +5,7 @@ import 'package:book_worm/features/auth/domain/use_case/sign_in_google_use_case.
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/favorites/data/favorites_repos_imple/favorites_repos_imple.dart';
 import 'package:book_worm/features/favorites/domain/use_cases/get_favorites_use_case.dart';
-import 'package:book_worm/features/favorites/presentation/manager/fvorites_cubit/favorites_cubit.dart';
+import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_featchered_books_usecase.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_newest_books_usecase.dart';

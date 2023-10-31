@@ -36,7 +36,7 @@ class ServerFalure extends Falure {
       {required String responseBody, required int? responseStatuseCode}) {
     if (responseStatuseCode! >= 500) {
       return ServerFalure(massege: 'there is an error from server side');
-    } else if (responseStatuseCode >= 400) {
+    } else if (responseStatuseCode >= 400 && responseStatuseCode != 401) {
       return ServerFalure(
           massege: 'there is an error from the client side or page not found');
     } else if (responseStatuseCode == 401) {

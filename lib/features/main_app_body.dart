@@ -5,6 +5,7 @@ import 'package:book_worm/core/utils/assets/assets.dart';
 import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
+import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/favorites/presentation/views/favorites_view.dart';
 import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
@@ -79,7 +80,8 @@ class _MainAppBodyState extends State<MainAppBody> {
                 selectedIndex: selectedViewindex,
                 onTabChange: (index) async {
                   if (index == 2) {
-                    // BlocProvider.of<SignInCubit>(context).signInGoogle();
+                    BlocProvider.of<FavoritesCubit>(context)
+                        .getFavoritesBooks();
                   }
                   setState(() {
                     selectedViewindex = index;

@@ -15,7 +15,7 @@ class SignInCubit extends Cubit<SignInState> {
   SignInCubit({required this.repoImpel, required this.signInGoogleUseCase})
       : super(SignInInitial());
 
-  void signInGoogle() async {
+  Future<void> signInGoogle() async {
     emit(SignInLoading());
     Either<ServerFalure, UserEntity> userData =
         await signInGoogleUseCase.call();
