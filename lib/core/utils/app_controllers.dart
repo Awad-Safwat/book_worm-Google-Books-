@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class AppControllers {
+  static GoogleSignIn googleSignInController =
+      GoogleSignIn(scopes: ["https://www.googleapis.com/auth/books"]);
+
   static final webViewController = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
     ..setBackgroundColor(const Color(0x00000000))

@@ -10,6 +10,7 @@ class SelectedBookCard extends StatelessWidget {
     required this.book,
   });
   final dynamic book;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,26 +29,41 @@ class SelectedBookCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  book.bookTitle!,
-                  style: Styels.textStyle14.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 155),
+                      child: Text(
+                        book.bookTitle!,
+                        style: Styels.textStyle14.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                          size: 40,
+                        ))
+                  ],
                 ),
                 const SizedBox(
                   height: 3,
                 ),
-                Text(
-                  book.bookDiscreption!,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                  style: Styels.textStyle8.copyWith(
-                    color: Colors.white,
-                  ),
-                ),
+                // Text(
+                //   book.bookDiscreption!,
+                //   overflow: TextOverflow.ellipsis,
+                //   maxLines: 3,
+                //   style: Styels.textStyle8.copyWith(
+                //     color: Colors.white,
+                //   ),
+                // ),
                 const SizedBox(
                   height: 5,
                 ),

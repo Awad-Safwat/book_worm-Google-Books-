@@ -28,11 +28,10 @@ class BookWithAuthorSection extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          Positioned.directional(
-            textDirection: TextDirection.ltr,
+          Positioned(
             height: screenSize.height * .16,
             top: screenSize.height * .05,
-            start: screenSize.width * .11,
+            left: screenSize.width * .11,
             child: SizedBox(
               child: SelectedBookCard(book: book),
             ),

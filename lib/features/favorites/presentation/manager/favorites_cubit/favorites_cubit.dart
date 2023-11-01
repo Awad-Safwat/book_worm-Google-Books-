@@ -1,3 +1,5 @@
+import 'package:book_worm/core/utils/app_controllers.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:book_worm/core/errors/faluer.dart';
 import 'package:book_worm/features/favorites/domain/use_cases/get_favorites_use_case.dart';
@@ -17,23 +19,26 @@ class FavoritesCubit extends Cubit<FavoritesCubitState> {
 
   void getFavoritesBooks() async {
     emit(FavoritesCubitLoading());
+    if (await isUserSignedIn()) {
+      Either<ServerFalure, List<BookEntity>> response =
+          await getFavoritesUseCase.call();
 
-    Either<ServerFalure, List<BookEntity>> response =
-        await getFavoritesUseCase.call();
-
-    response.fold(
-      (faluer) {
-        if (faluer.massege == '401') {
-          emit(FavoritesCubitNotAuthorized());
-        } else {
-          emit(FavoritesCubitFailure(faluer: faluer));
-        }
-      },
-      (books) {
-        booklst = books;
-        emit(FavoritesCubitSuccess(books: books));
-      },
-    );
+      response.fold(
+        (faluer) {
+          if (faluer.massege == '401') {
+            emit(FavoritesCubitNotAuthorized());
+          } else {
+            emit(FavoritesCubitFailure(faluer: faluer));
+          }
+        },
+        (books) {
+          booklst = books;
+          emit(FavoritesCubitSuccess(books: books));
+        },
+      );
+    } else {
+      emit(FavoritesCubitUserNotSigned());
+    }
   }
 
   void justEmitLoading() => emit(FavoritesCubitLoading());

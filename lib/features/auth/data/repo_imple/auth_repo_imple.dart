@@ -1,4 +1,5 @@
 import 'package:book_worm/core/errors/faluer.dart';
+import 'package:book_worm/core/utils/app_controllers.dart';
 import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/auth/domain/entities/user_entity/user_entity.dart';
 import 'package:book_worm/features/auth/domain/repos/auth_repo.dart';
@@ -6,12 +7,9 @@ import 'package:dartz/dartz.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepoImpel extends AuthRepo {
-  static GoogleSignIn googleSignIn =
-      GoogleSignIn(scopes: ["https://www.googleapis.com/auth/books"]);
-
   @override
   void signOut() {
-    googleSignIn.disconnect();
+    AppControllers.googleSignInController.disconnect();
   }
 
   @override
@@ -19,11 +17,13 @@ class AuthRepoImpel extends AuthRepo {
       int isFirstTime) async {
     try {
       GoogleSignInAccount? account =
-          await googleSignIn.signIn().catchError((er) {
+          await AppControllers.googleSignInController.signIn().catchError((er) {
+        print(er.toString());
         return left(ServerFalure(massege: er.toString()));
       });
       GoogleSignInAuthentication? accountAuth =
           await account?.authentication.catchError((er) {
+        print(er.toString());
         return left(ServerFalure(massege: er.toString()));
       });
 
@@ -48,7 +48,7 @@ class AuthRepoImpel extends AuthRepo {
   Future<bool> canAccessToken() async {
     String? accessToken = getAccessToken();
 
-    var canAccess = await googleSignIn.canAccessScopes(
+    var canAccess = await AppControllers.googleSignInController.canAccessScopes(
         ["https://www.googleapis.com/auth/books"],
         accessToken: accessToken);
 

@@ -33,7 +33,7 @@ class ButtomSheetButton extends StatelessWidget {
         onPressed: () async {
           final prefs = await SharedPreferences.getInstance();
           prefs.setBool('showHome', true);
-          GoRouter.of(context).go(AppStrings.kHomeView);
+          GoRouter.of(context).go(AppStrings.kMainAppBody);
         },
         child: Center(
           child: Padding(
