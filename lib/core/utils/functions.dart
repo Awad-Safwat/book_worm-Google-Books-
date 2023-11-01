@@ -41,6 +41,23 @@ String? getAccessToken() {
   return accessToken;
 }
 
+void deletAFavoriteLocal({required String bookId}) {
+  var box = Hive.box(AppStrings.kHiFavoritesBox);
+  box.delete(bookId);
+}
+
+void addToFavoritesLocal({required String bookId}) {
+  var box = Hive.box<String>(AppStrings.kHiFavoritesBox);
+  box.add(bookId);
+}
+
+bool isFavorite({required String bookId}) {
+  var box = Hive.box<String>(AppStrings.kHiFavoritesBox);
+  bool isFavorit = box.values.contains(bookId);
+  print(box.values);
+  return isFavorit;
+}
+
 // func to extract books from json response to a list
 List<BookEntity> extractingMapDataToList(Map<String, dynamic> response) {
   List<BookEntity> extractedBooksList = [];

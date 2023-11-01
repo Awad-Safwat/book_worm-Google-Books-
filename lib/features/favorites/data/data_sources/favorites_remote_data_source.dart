@@ -4,6 +4,8 @@ import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 
 abstract class FavoritesRemoteDataSource {
   Future<List<BookEntity>> getFavoritesBooks();
+  Future<void> deleteFromFavoritesBooks({required String bookId});
+  Future<void> addToFavoritesBooks({required String bookId});
 }
 
 class FavoritesRometeDataSourceImple extends FavoritesRemoteDataSource {
@@ -13,12 +15,27 @@ class FavoritesRometeDataSourceImple extends FavoritesRemoteDataSource {
   @override
   Future<List<BookEntity>> getFavoritesBooks() async {
     var response = await apiService.get(
-      endPoint: 'mylibrary/bookshelves/',
-      accessToken: getAccessToken(),
-      shilfId: 0,
+      endPoint:
+          'mylibrary/bookshelves/0/volumes?access_token=${getAccessToken()}',
     );
 
     List<BookEntity> books = extractingMapDataToList(response);
     return books;
+  }
+
+  @override
+  Future<void> addToFavoritesBooks({required String bookId}) async {
+    await apiService.add(
+      endPoint:
+          'mylibrary/bookshelves/0/addVolume?volumeId=$bookId&accessToken=${getAccessToken()}',
+    );
+  }
+
+  @override
+  Future<void> deleteFromFavoritesBooks({required String bookId}) async {
+    await apiService.delet(
+      endPoint:
+          'mylibrary/bookshelves/0/removeVolume?volumeId=$bookId&accessToken=${getAccessToken()}',
+    );
   }
 }

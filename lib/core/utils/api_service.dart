@@ -8,16 +8,20 @@ class ApiService {
 
   Future<Map<String, dynamic>> get({
     required String endPoint,
-    String? accessToken,
-    int? shilfId,
   }) async {
-    if (accessToken == null) {
-      var response = await _dio.get('$baseUrl$endPoint');
-      return response.data;
-    } else {
-      var response = await _dio.get(
-          '$baseUrl$endPoint${shilfId ?? 0}/volumes?access_token=$accessToken');
-      return response.data;
-    }
+    var response = await _dio.get('$baseUrl$endPoint');
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> delet({required String endPoint}) async {
+    var response = await _dio.post('$baseUrl$endPoint');
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> add({
+    required String endPoint,
+  }) async {
+    var response = await _dio.post('$baseUrl$endPoint');
+    return response.data;
   }
 }

@@ -12,15 +12,31 @@ class FavoritesReposImple extends FavoritesRepos {
 
   FavoritesReposImple({required this.favoritesRemDSourceImple});
   @override
-  Either<ServerFalure, int> addToFavoritesBooks({required String bookId}) {
-    // TODO: implement addToFavoritesBooks
-    throw UnimplementedError();
+  Future<Either<ServerFalure, void>> addToFavoritesBooks(
+      {required String bookId}) async {
+    try {
+      await favoritesRemDSourceImple.addToFavoritesBooks(bookId: bookId);
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFalure.fromDioError(e));
+      }
+      return left(ServerFalure(massege: e.toString()));
+    }
   }
 
   @override
-  Either<ServerFalure, int> deleteFromFavoritesBooks({required String bookId}) {
-    // TODO: implement deleteFromFavoritesBooks
-    throw UnimplementedError();
+  Future<Either<ServerFalure, void>> deleteFromFavoritesBooks(
+      {required String bookId}) async {
+    try {
+      await favoritesRemDSourceImple.deleteFromFavoritesBooks(bookId: bookId);
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFalure.fromDioError(e));
+      }
+      return left(ServerFalure(massege: e.toString()));
+    }
   }
 
   @override

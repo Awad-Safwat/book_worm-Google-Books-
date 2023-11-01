@@ -28,6 +28,7 @@ void main() async {
   await Hive.openBox<SearchedBookEntity>(AppStrings.kHistoryBox);
   await Hive.openBox<UserEntity>(AppStrings.kHiUserDataBox);
   await Hive.openBox<bool>(AppStrings.kHiIsLogedBeforeBox);
+  await Hive.openBox<String>(AppStrings.kHiFavoritesBox);
 
   runApp(const BookWorm());
 }
