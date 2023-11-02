@@ -22,7 +22,3 @@ final class FavoritesCubitFailure extends FavoritesCubitState {
 final class FavoritesCubitNotAuthorized extends FavoritesCubitState {}
 
 final class FavoritesCubitUserNotSigned extends FavoritesCubitState {}
-
-final class FavoritesCubitAddedSuccess extends FavoritesCubitState {}
-
-final class FavoritesCubitDeletedSuccess extends FavoritesCubitState {}

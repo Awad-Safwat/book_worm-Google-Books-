@@ -13,15 +13,27 @@ class ApiService {
     return response.data;
   }
 
-  Future<Map<String, dynamic>> delet({required String endPoint}) async {
-    var response = await _dio.post('$baseUrl$endPoint');
+  Future<Map<String, dynamic>> delet({
+    required String endPoint,
+    required Map<String, dynamic> data,
+    required String accessToken,
+  }) async {
+    var response = await _dio.post('$baseUrl$endPoint',
+        data: data,
+        options: Options(headers: {"Authorization": "Bearer $accessToken"}));
+    print(response.data);
     return response.data;
   }
 
   Future<Map<String, dynamic>> add({
     required String endPoint,
+    required Map<String, dynamic> data,
+    required String accessToken,
   }) async {
-    var response = await _dio.post('$baseUrl$endPoint');
+    var response = await _dio.post('$baseUrl$endPoint',
+        data: data,
+        options: Options(headers: {"Authorization": "Bearer $accessToken"}));
+    print(response.data);
     return response.data;
   }
 }

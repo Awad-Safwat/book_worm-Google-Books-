@@ -4,12 +4,12 @@ import 'package:book_worm/features/favorites/domain/favorites_repos/favorites_re
 import 'package:dartz/dartz.dart';
 
 class AddToFavoritesUseCase extends UseCase<void, String> {
-  final FavoritesRepos favoritesRepos;
+  final FavoritesRepos favoritesReposImple;
 
-  AddToFavoritesUseCase({required this.favoritesRepos});
+  AddToFavoritesUseCase({required this.favoritesReposImple});
 
   @override
   Future<Either<ServerFalure, void>> call([String? bookId]) async {
-    return favoritesRepos.addToFavoritesBooks(bookId: bookId!);
+    return favoritesReposImple.addToFavoritesBooks(bookId: bookId!);
   }
 }

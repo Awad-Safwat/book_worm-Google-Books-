@@ -4,16 +4,17 @@ import 'package:book_worm/features/auth/data/repo_imple/auth_repo_imple.dart';
 import 'package:book_worm/features/auth/domain/use_case/sign_in_google_use_case.dart';
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/favorites/data/favorites_repos_imple/favorites_repos_imple.dart';
+import 'package:book_worm/features/favorites/domain/use_cases/add_favorites_use_case.dart';
+import 'package:book_worm/features/favorites/domain/use_cases/delete_from_favorites_use_case.dart';
 import 'package:book_worm/features/favorites/domain/use_cases/get_favorites_use_case.dart';
+import 'package:book_worm/features/favorites/presentation/manager/add_delet_favorite_cubit/add_delete_favorite_cubit.dart';
 import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_featchered_books_usecase.dart';
 import 'package:book_worm/features/home/domain/use_cases/fetch_newest_books_usecase.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:book_worm/features/search/data/repos/search_repo_implementation.dart';
-import 'package:book_worm/features/search/domain/use_cases/fetch_searched_books_use_case.dart';
-import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,10 +41,20 @@ class BookWorm extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FavoritesCubit(
-              getFavoritesUseCase: GetFavoritesUseCase(
-            favoritesReposImple: getIt.get<FavoritesReposImple>(),
-          )),
+            getFavoritesUseCase: GetFavoritesUseCase(
+              favoritesReposImple: getIt.get<FavoritesReposImple>(),
+            ),
+          ),
         ),
+        BlocProvider(
+            create: (context) => AddDeleteFavoriteCubit(
+                  addToFavoritesUseCase: AddToFavoritesUseCase(
+                    favoritesReposImple: getIt.get<FavoritesReposImple>(),
+                  ),
+                  deleteFromFavoritesUseCase: DeleteFromFavoritesUseCase(
+                    favoritesReposImple: getIt.get<FavoritesReposImple>(),
+                  ),
+                )),
         BlocProvider(
           create: (context) => NewestBooksCubit(
             FetchNewestBooksUseCase(

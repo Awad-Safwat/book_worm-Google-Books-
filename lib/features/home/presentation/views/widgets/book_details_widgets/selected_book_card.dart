@@ -1,8 +1,11 @@
 import 'package:book_worm/core/utils/font_styels.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
+import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
+import 'package:book_worm/features/favorites/presentation/manager/add_delet_favorite_cubit/add_delete_favorite_cubit.dart';
+import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/rating_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectedBookCard extends StatelessWidget {
   const SelectedBookCard({
@@ -44,13 +47,44 @@ class SelectedBookCard extends StatelessWidget {
                         maxLines: 2,
                       ),
                     ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.white,
-                          size: 40,
-                        ))
+                    const Spacer(),
+                    BlocConsumer<AddDeleteFavoriteCubit,
+                        AddDeleteFavoriteState>(
+                      listener: (context, state) async {
+                        if (state is AddDeleteFavoriteCubitNotAuthorized) {
+                          BlocProvider.of<SignInCubit>(context)
+                              .signInGoogle()
+                              .then((value) =>
+                                  BlocProvider.of<AddDeleteFavoriteCubit>(
+                                          context)
+                                      .addToFavorites(bookId: book.bookId!));
+                        }
+                      },
+                      builder: (context, state) {
+                        return IconButton(
+                          onPressed: () {
+                            if (state is AddDeleteFavoriteCubitIsFavorite) {
+                              BlocProvider.of<AddDeleteFavoriteCubit>(context)
+                                  .deleteFromFavorites(bookId: book.bookId!);
+                            } else {
+                              BlocProvider.of<AddDeleteFavoriteCubit>(context)
+                                  .addToFavorites(bookId: book.bookId!);
+                            }
+                          },
+                          icon: (state is AddDeleteFavoriteCubitIsFavorite)
+                              ? const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 50,
+                                )
+                              : const Icon(
+                                  Icons.favorite,
+                                  color: Colors.grey,
+                                  size: 50,
+                                ),
+                        );
+                      },
+                    )
                   ],
                 ),
                 const SizedBox(

@@ -14,12 +14,8 @@ part 'favorites_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesCubitState> {
   final GetFavoritesUseCase getFavoritesUseCase;
-  final AddToFavoritesUseCase addToFavoritesUseCase;
-  final DeleteFromFavoritesUseCase deleteFromFavoritesUseCase;
-  FavoritesCubit(
-      {required this.addToFavoritesUseCase,
-      required this.deleteFromFavoritesUseCase,
-      required this.getFavoritesUseCase})
+
+  FavoritesCubit({required this.getFavoritesUseCase})
       : super(FavoritesCubitInitial());
 
   List<BookEntity> booklst = [];
@@ -49,49 +45,4 @@ class FavoritesCubit extends Cubit<FavoritesCubitState> {
   }
 
   void justEmitLoading() => emit(FavoritesCubitLoading());
-
-  void addToFavorites() async {
-    emit(FavoritesCubitLoading());
-    if (await isUserSignedIn()) {
-      Either<ServerFalure, void> response = await addToFavoritesUseCase.call();
-
-      response.fold(
-        (faluer) {
-          if (faluer.massege == '401') {
-            emit(FavoritesCubitNotAuthorized());
-          } else {
-            emit(FavoritesCubitFailure(faluer: faluer));
-          }
-        },
-        (right) {
-          emit(FavoritesCubitAddedSuccess());
-        },
-      );
-    } else {
-      emit(FavoritesCubitUserNotSigned());
-    }
-  }
-
-  void deleteFromFavorites() async {
-    emit(FavoritesCubitLoading());
-    if (await isUserSignedIn()) {
-      Either<ServerFalure, void> response =
-          await deleteFromFavoritesUseCase.call();
-
-      response.fold(
-        (faluer) {
-          if (faluer.massege == '401') {
-            emit(FavoritesCubitNotAuthorized());
-          } else {
-            emit(FavoritesCubitFailure(faluer: faluer));
-          }
-        },
-        (right) {
-          emit(FavoritesCubitDeletedSuccess());
-        },
-      );
-    } else {
-      emit(FavoritesCubitUserNotSigned());
-    }
-  }
 }

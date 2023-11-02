@@ -2,6 +2,10 @@ import 'package:book_worm/core/utils/api_service.dart';
 import 'package:book_worm/features/auth/data/repo_imple/auth_repo_imple.dart';
 import 'package:book_worm/features/favorites/data/data_sources/favorites_remote_data_source.dart';
 import 'package:book_worm/features/favorites/data/favorites_repos_imple/favorites_repos_imple.dart';
+import 'package:book_worm/features/favorites/domain/use_cases/add_favorites_use_case.dart';
+import 'package:book_worm/features/favorites/domain/use_cases/delete_from_favorites_use_case.dart';
+import 'package:book_worm/features/favorites/domain/use_cases/get_favorites_use_case.dart';
+import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:book_worm/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:book_worm/features/home/data/repos/home_repo_implementation.dart';
@@ -40,4 +44,12 @@ void settingUpGetItServices() {
       favoritesRemDSourceImple: FavoritesRometeDataSourceImple(
     apiService: getIt.get<ApiService>(),
   )));
+
+  getIt.registerSingleton<FavoritesCubit>(
+    FavoritesCubit(
+      getFavoritesUseCase: GetFavoritesUseCase(
+        favoritesReposImple: getIt.get<FavoritesReposImple>(),
+      ),
+    ),
+  );
 }

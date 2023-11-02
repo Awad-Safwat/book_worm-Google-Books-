@@ -4,12 +4,12 @@ import 'package:book_worm/features/favorites/domain/favorites_repos/favorites_re
 import 'package:dartz/dartz.dart';
 
 class DeleteFromFavoritesUseCase extends UseCase<void, String> {
-  final FavoritesRepos favoritesRepos;
+  final FavoritesRepos favoritesReposImple;
 
-  DeleteFromFavoritesUseCase({required this.favoritesRepos});
+  DeleteFromFavoritesUseCase({required this.favoritesReposImple});
 
   @override
   Future<Either<ServerFalure, void>> call([String? bookId]) {
-    return favoritesRepos.deleteFromFavoritesBooks(bookId: bookId!);
+    return favoritesReposImple.deleteFromFavoritesBooks(bookId: bookId!);
   }
 }

@@ -37,12 +37,11 @@ void saveUserDataLocaly({required UserEntity userData}) {
 String? getAccessToken() {
   var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
   String accessToken = box.values.first.userAccessToken.toString();
-  print(accessToken);
   return accessToken;
 }
 
 void deletAFavoriteLocal({required String bookId}) {
-  var box = Hive.box(AppStrings.kHiFavoritesBox);
+  var box = Hive.box<String>(AppStrings.kHiFavoritesBox);
   box.delete(bookId);
 }
 
@@ -54,7 +53,6 @@ void addToFavoritesLocal({required String bookId}) {
 bool isFavorite({required String bookId}) {
   var box = Hive.box<String>(AppStrings.kHiFavoritesBox);
   bool isFavorit = box.values.contains(bookId);
-  print(box.values);
   return isFavorit;
 }
 

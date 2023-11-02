@@ -26,16 +26,16 @@ class FavoritesRometeDataSourceImple extends FavoritesRemoteDataSource {
   @override
   Future<void> addToFavoritesBooks({required String bookId}) async {
     await apiService.add(
-      endPoint:
-          'mylibrary/bookshelves/0/addVolume?volumeId=$bookId&accessToken=${getAccessToken()}',
-    );
+        endPoint: 'mylibrary/bookshelves/0/addVolume',
+        accessToken: getAccessToken()!,
+        data: {'volumeId': bookId});
   }
 
   @override
   Future<void> deleteFromFavoritesBooks({required String bookId}) async {
     await apiService.delet(
-      endPoint:
-          'mylibrary/bookshelves/0/removeVolume?volumeId=$bookId&accessToken=${getAccessToken()}',
-    );
+        endPoint: 'mylibrary/bookshelves/0/removeVolume',
+        accessToken: getAccessToken()!,
+        data: {'volumeId': bookId});
   }
 }

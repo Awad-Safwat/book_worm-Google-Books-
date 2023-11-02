@@ -1,8 +1,10 @@
 import 'package:book_worm/core/utils/app_colors.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/features/favorites/presentation/manager/add_delet_favorite_cubit/add_delete_favorite_cubit.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class NewestListItem extends StatelessWidget {
@@ -28,6 +30,8 @@ class NewestListItem extends StatelessWidget {
       width: MediaQuery.of(context).size.width * .90,
       child: GestureDetector(
         onTap: () {
+          BlocProvider.of<AddDeleteFavoriteCubit>(context)
+              .checkIsFavoriteBook(book: book);
           GoRouter.of(context).push(AppStrings.kBookDetailsView, extra: book);
         },
         child: NewstListItemBody(
