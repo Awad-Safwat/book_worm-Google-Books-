@@ -3,7 +3,6 @@ import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_of_the_week_card_bloc_builder.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/featured_books_list_bloc_consumer.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/newest_list_items_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

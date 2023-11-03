@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
@@ -16,17 +15,6 @@ class SearchResultListSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var searchCubit = BlocProvider.of<SearchCubit>(context);
-    setupScrollController(context, searchCubit.scrollController, () {
-      if (searchCubit.scrollController.position.atEdge) {
-        if (searchCubit.scrollController.position.pixels != 0) {
-          if (!searchCubit.isLoading) {
-            searchCubit.fetchSearchedBooks(
-                searchCubit.textEditingController.value.text.toString(),
-                pageNumber: searchCubit.pageNumber);
-          }
-        }
-      }
-    });
 
     return Expanded(
       child: CustomScrollView(

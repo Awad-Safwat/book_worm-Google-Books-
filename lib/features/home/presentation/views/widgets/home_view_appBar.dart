@@ -25,7 +25,7 @@ class MainAppBar extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: Styels.textStyle20.copyWith(color: AppColors.primaryColor),
+          style: Styels.textStyle24.copyWith(color: AppColors.primaryColor),
         ),
         centerTitle: true,
         actions: [

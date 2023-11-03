@@ -60,7 +60,7 @@ class _MainAppBodyState extends State<MainAppBody> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
@@ -80,8 +80,10 @@ class _MainAppBodyState extends State<MainAppBody> {
                 selectedIndex: selectedViewindex,
                 onTabChange: (index) async {
                   if (index == 2) {
+                    BlocProvider.of<FavoritesCubit>(context).booklst.clear();
                     BlocProvider.of<FavoritesCubit>(context)
                         .getFavoritesBooks();
+
                     // BlocProvider.of<SignInCubit>(context).signInGoogle();
                   }
                   setState(() {

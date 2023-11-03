@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_worm/core/errors/faluer.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:book_worm/features/search/domain/use_cases/fetch_searched_books_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'search_state.dart';
@@ -39,6 +40,21 @@ class SearchCubit extends Cubit<SearchState> {
       fullBooks.addAll(booksList);
       isLoading = false;
       emit(SearchSucces(books: booksList));
+    });
+  }
+
+  searchScrollControllerSetUp(
+    BuildContext context,
+  ) {
+    setupScrollController(context, scrollController, () {
+      if (scrollController.position.atEdge) {
+        if (scrollController.position.pixels != 0) {
+          if (!isLoading) {
+            fetchSearchedBooks(textEditingController.value.text.toString(),
+                pageNumber: pageNumber);
+          }
+        }
+      }
     });
   }
 }

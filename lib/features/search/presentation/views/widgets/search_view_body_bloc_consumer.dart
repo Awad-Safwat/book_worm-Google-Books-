@@ -16,10 +16,15 @@ class SearchViewBodyBlocBuilder extends StatelessWidget {
     return BlocConsumer<SearchCubit, SearchState>(
       listener: (context, state) {
         if (state is SearchFaluer) {
-          showToast(state.massage);
+          // showToast(state.massage);
         }
         if (state is SearchPaginationFaluer) {
           showToast(state.massage);
+        }
+        if (state is SearchSucces) {
+          BlocProvider.of<SearchCubit>(context)
+              .searchScrollControllerSetUp(context);
+          BlocProvider.of<SearchCubit>(context).pageNumber++;
         }
       },
       builder: (context, state) {
