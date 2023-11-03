@@ -22,3 +22,11 @@ final class FavoritesCubitFailure extends FavoritesCubitState {
 final class FavoritesCubitNotAuthorized extends FavoritesCubitState {}
 
 final class FavoritesCubitUserNotSigned extends FavoritesCubitState {}
+
+final class FavoritesCubitPaginationLoading extends FavoritesCubitState {}
+
+final class FavoritesCubitPaginationfaluer extends FavoritesCubitState {
+  final ServerFalure faluer;
+
+  FavoritesCubitPaginationfaluer({required this.faluer});
+}

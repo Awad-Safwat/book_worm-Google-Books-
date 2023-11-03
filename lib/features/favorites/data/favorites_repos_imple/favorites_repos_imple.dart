@@ -43,7 +43,8 @@ class FavoritesReposImple extends FavoritesRepos {
   Future<Either<ServerFalure, List<BookEntity>>> getFavoritesBooks(
       {required int pageNumber}) async {
     try {
-      var books = await favoritesRemDSourceImple.getFavoritesBooks();
+      var books = await favoritesRemDSourceImple.getFavoritesBooks(
+          pageNumber: pageNumber);
       return right(books);
     } catch (e) {
       if (e is DioException) {

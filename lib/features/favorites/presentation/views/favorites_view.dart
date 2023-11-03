@@ -24,8 +24,12 @@ class FavoritesView extends StatelessWidget {
             return Center(
               child: Text(state.faluer.massege),
             );
-          } else if (state is FavoritesCubitSuccess) {
+          } else if (state is FavoritesCubitSuccess ||
+              state is FavoritesCubitPaginationLoading ||
+              state is FavoritesCubitPaginationfaluer) {
             return ListView.builder(
+              controller: BlocProvider.of<FavoritesCubit>(context)
+                  .favoritesScrollController,
               itemCount:
                   BlocProvider.of<FavoritesCubit>(context).booklst.length,
               itemBuilder: (context, index) {
@@ -71,13 +75,27 @@ class FavoritesView extends StatelessWidget {
             await BlocProvider.of<SignInCubit>(context)
                 .signInGoogle()
                 .then((value) {
-              BlocProvider.of<FavoritesCubit>(context).getFavoritesBooks();
+              BlocProvider.of<FavoritesCubit>(context).getFavoritesBooks(
+                  pageNumber:
+                      BlocProvider.of<FavoritesCubit>(context).pageNumber);
             });
           }
           if (state is FavoritesCubitUserNotSigned) {
             if (context.mounted) {
               return showSignInDialog(context);
             }
+          }
+          if (state is FavoritesCubitSuccess) {
+            if (context.mounted) {
+              BlocProvider.of<FavoritesCubit>(context)
+                  .favoritesScrollControllerSetUp(context);
+            }
+          }
+          if (state is FavoritesCubitPaginationfaluer) {
+            showToast(state.faluer.massege);
+          }
+          if (state is FavoritesCubitSuccess) {
+            BlocProvider.of<FavoritesCubit>(context).pageNumber++;
           }
         },
       ),

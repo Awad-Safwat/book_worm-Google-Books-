@@ -13,10 +13,10 @@ class FavoritesRometeDataSourceImple extends FavoritesRemoteDataSource {
 
   FavoritesRometeDataSourceImple({required this.apiService});
   @override
-  Future<List<BookEntity>> getFavoritesBooks() async {
+  Future<List<BookEntity>> getFavoritesBooks({int pageNumber = 0}) async {
     var response = await apiService.get(
       endPoint:
-          'mylibrary/bookshelves/0/volumes?access_token=${getAccessToken()}',
+          'mylibrary/bookshelves/0/volumes?startIndex=${pageNumber * 10}&access_token=${getAccessToken()}',
     );
 
     List<BookEntity> books = extractingMapDataToList(response);
@@ -28,7 +28,9 @@ class FavoritesRometeDataSourceImple extends FavoritesRemoteDataSource {
     await apiService.add(
         endPoint: 'mylibrary/bookshelves/0/addVolume',
         accessToken: getAccessToken()!,
-        data: {'volumeId': bookId});
+        data: {
+          'volumeId': bookId,
+        });
   }
 
   @override
