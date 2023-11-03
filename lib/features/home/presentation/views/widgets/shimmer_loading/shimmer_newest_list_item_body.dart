@@ -1,9 +1,3 @@
-import 'package:book_worm/core/utils/app_router.dart';
-import 'package:book_worm/core/utils/font_styels.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/shimmer_loading/shimmer_text.dart';

@@ -25,8 +25,14 @@ class BookEntity {
   final String? price;
   @HiveField(9)
   final String? bookWebViewUrl;
+  @HiveField(10)
+  final String? buyLinkUrl;
+  @HiveField(11)
+  final bool? isEbook;
 
   BookEntity({
+    required this.isEbook,
+    required this.buyLinkUrl,
     required this.bookWebViewUrl,
     required this.bookTitle,
     required this.rating,
@@ -38,4 +44,10 @@ class BookEntity {
     required this.bookDiscreption,
     required this.price,
   });
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return super.toString();
+  }
 }

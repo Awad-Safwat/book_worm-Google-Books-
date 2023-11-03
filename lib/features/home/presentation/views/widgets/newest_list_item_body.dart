@@ -32,8 +32,8 @@ class NewstListItemBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                book.bookTitle!,
-                maxLines: 2,
+                book.bookTitle ?? 'not found',
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Styels.textStyle14.copyWith(fontWeight: FontWeight.w700),
               ),
@@ -41,8 +41,12 @@ class NewstListItemBody extends StatelessWidget {
                 height: 3,
               ),
               Text(
-                book.authorName!,
-                style: Styels.textStyle10.copyWith(fontWeight: FontWeight.w600),
+                book.authorName ?? 'not found',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Styels.textStyle10.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(
                 height: 3,
@@ -52,7 +56,7 @@ class NewstListItemBody extends StatelessWidget {
                   Text(
                     (book.rating != null)
                         ? book.rating!.toDouble().toString()
-                        : "1.0",
+                        : "0.0",
                     style: Styels.textStyle10.copyWith(
                       fontWeight: FontWeight.bold,
                       color: const Color(0xffF24F09),
@@ -67,9 +71,11 @@ class NewstListItemBody extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                (book.price == null || book.price == '0')
-                    ? 'Free'
-                    : '${book.price!} EGP',
+                (book.isEbook!)
+                    ? (book.price == '0' || book.price == null)
+                        ? 'free'
+                        : '${book.price!} EGP'
+                    : 'Not for sale',
                 style: Styels.textStyle14.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(
@@ -86,7 +92,7 @@ class NewstListItemBody extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ReadNowButton(bookUrl: book.bookWebViewUrl!),
+              ReadNowButton(book: book),
               LearnMoreButton(
                 book: book,
               ),

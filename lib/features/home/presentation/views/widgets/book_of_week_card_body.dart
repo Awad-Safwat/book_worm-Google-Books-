@@ -59,13 +59,10 @@ class BookOfWeekCardBody extends StatelessWidget {
                 maxLines: 4,
                 style: Styels.textStyle8,
               ),
-              const SizedBox(
-                height: 2,
-              ),
               Row(
                 children: [
                   ReadNowButton(
-                    bookUrl: book.bookWebViewUrl ?? '',
+                    book: book.bookWebViewUrl ?? '',
                   ),
                   const SizedBox(
                     width: 5,

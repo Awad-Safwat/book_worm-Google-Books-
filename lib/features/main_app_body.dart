@@ -60,7 +60,7 @@ class _MainAppBodyState extends State<MainAppBody> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(

@@ -42,8 +42,11 @@ class FavoritesView extends StatelessWidget {
                     GoRouter.of(context)
                         .push(AppStrings.kBookDetailsView, extra: book);
                   },
-                  child: FavoritesListItem(
-                    book: book,
+                  child: Dismissible(
+                    key: Key(book.bookId!),
+                    child: FavoritesListItem(
+                      book: book,
+                    ),
                   ),
                 );
               },

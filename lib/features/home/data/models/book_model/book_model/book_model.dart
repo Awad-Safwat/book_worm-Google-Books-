@@ -35,6 +35,8 @@ class BookModel extends BookEntity {
           authorImage: null,
           bookDiscreption: volumeInfo?.description,
           price: saleInfo?.listPrice?.amount.toString(),
+          buyLinkUrl: saleInfo?.buyLink.toString(),
+          isEbook: saleInfo?.isEbook,
         );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
@@ -66,4 +68,10 @@ class BookModel extends BookEntity {
         'accessInfo': accessInfo?.toJson(),
         'searchInfo': searchInfo?.toJson(),
       };
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return super.toString();
+  }
 }

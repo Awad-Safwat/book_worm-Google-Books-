@@ -12,7 +12,7 @@ class CarouselSliderList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      itemCount: 8,
+      itemCount: 9,
       itemBuilder: (BuildContext context, int index, int page) =>
           BookOfTheWeekCard(
               book: books[books.length - 1 - index], screenSize: size),

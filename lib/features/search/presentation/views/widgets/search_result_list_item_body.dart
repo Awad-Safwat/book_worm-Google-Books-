@@ -65,7 +65,7 @@ class SearchResultListItemBody extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ReadNowButton(bookUrl: book.bookWebViewUrl!),
+              ReadNowButton(book: book),
               LearnMoreButton(
                 book: book,
               ),

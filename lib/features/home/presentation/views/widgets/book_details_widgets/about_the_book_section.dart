@@ -8,7 +8,7 @@ class AbouTheBookSection extends StatelessWidget {
     required this.screenSize,
     required this.book,
   });
-  final dynamic book;
+  final BookEntity book;
   final Size screenSize;
 
   @override
@@ -29,7 +29,7 @@ class AbouTheBookSection extends StatelessWidget {
             height: 15,
           ),
           Text(
-            book.bookDiscreption!,
+            book.bookDiscreption ?? 'no discreption found',
             style: Styels.textStyle14,
             maxLines: 20,
             overflow: TextOverflow.ellipsis,

@@ -10,12 +10,15 @@ class BookImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(boxShadow: [
-        BoxShadow(
-          blurRadius: 5,
-          blurStyle: BlurStyle.outer,
-        )
-      ]),
+      width: MediaQuery.sizeOf(context).width * 0.19,
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            blurStyle: BlurStyle.outer,
+          )
+        ],
+      ),
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         placeholder: (context, url) => Container(
