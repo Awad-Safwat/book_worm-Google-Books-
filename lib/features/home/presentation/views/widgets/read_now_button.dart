@@ -1,6 +1,8 @@
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/core/utils/app_colors.dart';
+import 'package:book_worm/core/utils/functions.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +15,8 @@ class ReadNowButton extends StatelessWidget {
     this.topRightRadius = 5,
     this.bottomLeftRadius = 5,
     this.bottomRightRadius = 5,
-    required this.bookUrl,
+    this.buttonText = 'Read now',
+    required this.book,
   });
   final double buttonHeight,
       buttonWidth,
@@ -21,7 +24,8 @@ class ReadNowButton extends StatelessWidget {
       topRightRadius,
       bottomLeftRadius,
       bottomRightRadius;
-  final String bookUrl;
+  final dynamic book;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +45,17 @@ class ReadNowButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        GoRouter.of(context).push(AppStrings.kBookWebView, extra: bookUrl);
+        if (book.isEbook!) {
+          launchURL(book.buyLinkUrl!);
+        }
       },
       child: Text(
-        'Read Now',
+        buttonText,
         style: Styels.textStyle10.copyWith(
           color: Colors.white,
+          fontWeight: FontWeight.w900,
         ),
+        textWidthBasis: TextWidthBasis.longestLine,
       ),
     );
   }

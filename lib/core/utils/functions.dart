@@ -14,6 +14,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void saveBooksLocaly<type>(
     {required Set<type> extractedBooksList, required String boxName}) {
@@ -131,3 +132,7 @@ Future<void> showSignInDialog(BuildContext context) async {
         );
       });
 }
+
+void launchURL(String url) async => await canLaunchUrl(Uri.parse(url))
+    ? await launchUrl(Uri.parse(url))
+    : throw 'Could not launch $url';

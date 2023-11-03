@@ -9,7 +9,7 @@ class PriceButtonSection extends StatelessWidget {
     required this.screenSize,
     required this.book,
   });
-  final dynamic book;
+  final BookEntity book;
   final Size screenSize;
 
   @override
@@ -30,9 +30,11 @@ class PriceButtonSection extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                (book.price == null || book.price == '0')
-                    ? 'Free'
-                    : '${book.price!} EGP',
+                (book.isEbook!)
+                    ? (book.price == '0' || book.price == null)
+                        ? 'free'
+                        : '${book.price!} EGP'
+                    : 'Not for sale',
                 style: Styels.textStyle18.copyWith(color: Colors.black),
               ),
               const Spacer(),
@@ -43,7 +45,8 @@ class PriceButtonSection extends StatelessWidget {
                 bottomLeftRadius: 0,
                 topRightRadius: 15,
                 bottomRightRadius: 15,
-                bookUrl: book.bookWebViewUrl!,
+                book: book,
+                buttonText: 'Buy Now',
               ),
             ],
           ),
