@@ -2,7 +2,7 @@ import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/auth/presentation/views/widgets/user_not_signed_in_view.dart';
 import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
-import 'package:book_worm/features/favorites/presentation/widgets/favorites_list_item.dart';
+import 'package:book_worm/features/favorites/presentation/widgets/favorites_list_item_g_detector.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +30,7 @@ class FavoriteViewBlocConsumer extends StatelessWidget {
             itemBuilder: (context, index) {
               BookEntity book =
                   BlocProvider.of<FavoritesCubit>(context).booklst[index];
-              return FavoritesListItems(book: book);
+              return FavoritesListItemsGDetector(book: book);
             },
           );
         } else if (state is FavoritesCubitUserNotSigned) {
