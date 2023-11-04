@@ -43,6 +43,13 @@ void settingUpGetItServices() {
       apiService: getIt.get<ApiService>(),
     ),
   ));
+  getIt.registerSingleton(
+    MyBooksReposImple(
+      myBooksRemoteDataSourceImple: MyBooksRemoteDataSourceImple(
+        apiService: getIt.get<ApiService>(),
+      ),
+    ),
+  );
 
   getIt.registerSingleton<FavoritesReposImple>(FavoritesReposImple(
       favoritesRemDSourceImple: FavoritesRometeDataSourceImple(
@@ -50,12 +57,6 @@ void settingUpGetItServices() {
   )));
 
   getIt.registerSingleton<GetMyBooksUseCase>(
-    GetMyBooksUseCase(
-      myBooksReposImple: MyBooksReposImple(
-        myBooksRemoteDataSourceImple: MyBooksRemoteDataSourceImple(
-          apiService: getIt.get<ApiService>(),
-        ),
-      ),
-    ),
+    GetMyBooksUseCase(myBooksReposImple: getIt.get<MyBooksReposImple>()),
   );
 }

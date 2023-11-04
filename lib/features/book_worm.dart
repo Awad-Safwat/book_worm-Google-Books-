@@ -14,6 +14,10 @@ import 'package:book_worm/features/home/domain/use_cases/fetch_featchered_books_
 import 'package:book_worm/features/home/domain/use_cases/fetch_newest_books_usecase.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
 import 'package:book_worm/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:book_worm/features/my_books/data/repos_imple/my_books_repos_imple.dart';
+import 'package:book_worm/features/my_books/domain/my_books_use_cases/add_to_my_books_use_case.dart';
+import 'package:book_worm/features/my_books/domain/my_books_use_cases/delete_from_my_books_use_case.dart';
+import 'package:book_worm/features/my_books/presentation/manager/add_delete_my_books_cubit/add_delete_my_books_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,6 +57,15 @@ class BookWorm extends StatelessWidget {
                   ),
                   deleteFromFavoritesUseCase: DeleteFromFavoritesUseCase(
                     favoritesReposImple: getIt.get<FavoritesReposImple>(),
+                  ),
+                )),
+        BlocProvider(
+            create: (context) => AddDeleteMyBooksCubit(
+                  addToMyBooksUseCase: AddToMyBooksUseCase(
+                    myBooksReposImple: getIt.get<MyBooksReposImple>(),
+                  ),
+                  deleteFromMyBooksUseCase: DeleteFromMyBooksUseCase(
+                    myBooksReposImple: getIt.get<MyBooksReposImple>(),
                   ),
                 )),
         BlocProvider(

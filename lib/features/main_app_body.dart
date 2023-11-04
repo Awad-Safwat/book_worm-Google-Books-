@@ -84,8 +84,6 @@ class _MainAppBodyState extends State<MainAppBody> {
                     BlocProvider.of<FavoritesCubit>(context).booklst.clear();
                     BlocProvider.of<FavoritesCubit>(context)
                         .getFavoritesBooks();
-
-                    // BlocProvider.of<SignInCubit>(context).signInGoogle();
                   }
                   setState(() {
                     selectedViewindex = index;
