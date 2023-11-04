@@ -1,13 +1,9 @@
 import 'package:book_worm/core/utils/app_colors.dart';
-import 'package:book_worm/core/utils/app_strings.dart';
-import 'package:book_worm/core/utils/functions.dart';
+
 import 'package:book_worm/features/favorites/presentation/widgets/favorites_list_item_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:book_worm/features/home/presentation/views/widgets/newest_list_item_body.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
-import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item_body.dart';
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class FavoritesListItem extends StatelessWidget {
   const FavoritesListItem({
