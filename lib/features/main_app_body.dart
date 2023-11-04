@@ -11,6 +11,7 @@ import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:book_worm/features/my_books/presentation/view/my_books_view.dart';
 import 'package:book_worm/features/search/presentation/views/search_view.dart';
+import 'package:book_worm/features/user_profile/presentation/view/user_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
@@ -60,7 +61,7 @@ class _MainAppBodyState extends State<MainAppBody> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
@@ -104,6 +105,7 @@ List<Widget> screensList = [
   const SearchView(),
   const FavoritesView(),
   const MyBooksView(),
+  const UserProfileView(),
 ];
 
 List<GButton> navBarsItems = [
@@ -123,4 +125,8 @@ List<GButton> navBarsItems = [
     icon: Icons.library_books,
     text: ("My Books"),
   ),
+  const GButton(
+    icon: Icons.person,
+    text: 'My Profile',
+  )
 ];

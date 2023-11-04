@@ -10,6 +10,7 @@ import 'package:book_worm/features/my_books/presentation/view/my_books_view.dart
 import 'package:book_worm/features/onboarding/presentation/views/onboard_view.dart';
 import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:book_worm/features/search/presentation/views/search_view.dart';
+import 'package:book_worm/features/user_profile/presentation/view/user_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,6 +36,10 @@ abstract class AppRouter {
       GoRoute(
         path: AppStrings.kMyBooksView,
         builder: (context, state) => const MyBooksView(),
+      ),
+      GoRoute(
+        path: AppStrings.kUserProfileView,
+        builder: (context, state) => const UserProfileView(),
       ),
       GoRoute(
         path: AppStrings.kMainAppBody,

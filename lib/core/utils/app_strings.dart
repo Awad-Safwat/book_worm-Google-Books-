@@ -14,4 +14,5 @@ class AppStrings {
   static const kMyBooksView = '/kMyBooksView';
   static const kFavoritesBooksView = '/kFavoritesBooksView';
   static const kHiFavoritesBox = 'FavoritesBox';
+  static const kUserProfileView = '/UserProfileView';
 }
