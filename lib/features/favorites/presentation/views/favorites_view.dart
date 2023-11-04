@@ -43,6 +43,12 @@ class FavoritesView extends StatelessWidget {
                         .push(AppStrings.kBookDetailsView, extra: book);
                   },
                   child: Dismissible(
+                    onDismissed: (DismissDirection direction) {
+                      if (direction == DismissDirection.startToEnd) {
+                        BlocProvider.of<AddDeleteFavoriteCubit>(context)
+                            .deleteFromFavorites(bookId: book.bookId!);
+                      }
+                    },
                     key: Key(book.bookId!),
                     child: FavoritesListItem(
                       book: book,
