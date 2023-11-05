@@ -1,5 +1,5 @@
 import 'package:book_worm/core/utils/font_styels.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:flutter/material.dart';
 
 class AbouTheBookSection extends StatelessWidget {
@@ -8,7 +8,7 @@ class AbouTheBookSection extends StatelessWidget {
     required this.screenSize,
     required this.book,
   });
-  final BookEntity book;
+  final dynamic book;
   final Size screenSize;
 
   @override
@@ -37,6 +37,14 @@ class AbouTheBookSection extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          TextButton(
+              onPressed: () {
+                launchURL(book.bookWebViewUrl ?? '');
+              },
+              child: Text(
+                'Read Sample..',
+                style: Styels.textStyle18.copyWith(color: Colors.blue),
+              )),
         ],
       ),
     );

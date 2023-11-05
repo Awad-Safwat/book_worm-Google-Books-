@@ -6,7 +6,7 @@ sealed class SearchState {}
 final class SearchInitial extends SearchState {}
 
 final class SearchSucces extends SearchState {
-  final List<SearchedBookEntity> books;
+  final List<BookEntity> books;
 
   SearchSucces({required this.books});
 }

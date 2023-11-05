@@ -6,8 +6,6 @@ import 'package:book_worm/features/auth/domain/entities/user_entity/user_entity.
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
 import 'package:book_worm/features/home/data/models/book_model/book_model/book_model.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
-import 'package:book_worm/features/search/data/models/searched_book_model/searched_book_model.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -72,15 +70,15 @@ List<BookEntity> extractingMapDataToList(Map<String, dynamic> response) {
   return extractedBooksList;
 }
 
-List<SearchedBookEntity> extractingMapDataToListSearchFeature(
-    Map<String, dynamic> response) {
-  List<SearchedBookEntity> extractedBooksList = [];
-  for (Map<String, dynamic> element in response['items']) {
-    extractedBooksList.add(SearchedBookModel.fromJson(element));
-  }
+// List<SearchedBookEntity> extractingMapDataToListSearchFeature(
+//     Map<String, dynamic> response) {
+//   List<SearchedBookEntity> extractedBooksList = [];
+//   for (Map<String, dynamic> element in response['items']) {
+//     extractedBooksList.add(SearchedBookModel.fromJson(element));
+//   }
 
-  return extractedBooksList;
-}
+//   return extractedBooksList;
+// }
 
 void showToast(String massage) {
   Fluttertoast.showToast(

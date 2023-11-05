@@ -8,7 +8,7 @@ final class HistoryInitial extends HistoryState {}
 final class HistoryLoading extends HistoryState {}
 
 final class HistorySucsess extends HistoryState {
-  final List<SearchedBookEntity> books;
+  final List<BookEntity> books;
 
   HistorySucsess({required this.books});
 }

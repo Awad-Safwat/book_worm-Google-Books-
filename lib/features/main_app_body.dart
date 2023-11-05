@@ -121,7 +121,7 @@ List<GButton> navBarsItems = [
   ),
   const GButton(
     icon: Icons.favorite,
-    text: ("favorite"),
+    text: ("favorites"),
   ),
   const GButton(
     icon: Icons.library_books,
@@ -129,6 +129,6 @@ List<GButton> navBarsItems = [
   ),
   const GButton(
     icon: Icons.person,
-    text: 'My Profile',
+    text: 'Profile',
   )
 ];

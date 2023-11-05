@@ -1,7 +1,7 @@
 import 'package:book_worm/core/errors/faluer.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/data/data_sources/search_local_data_source.dart';
 import 'package:book_worm/features/search/data/data_sources/search_remote_data_source.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:book_worm/features/search/domain/repos/search_view_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -16,9 +16,9 @@ class SearchRepoImplementation extends SearchViewRepo {
       required this.searchRemoteDataSource});
 
   @override
-  Future<Either<ServerFalure, List<SearchedBookEntity>>>
+  Future<Either<ServerFalure, List<BookEntity>>>
       fetchHistorySearchedBooks() async {
-    List<SearchedBookEntity> books;
+    List<BookEntity> books;
     try {
       books = searchLocalDataSource.fetchHistoryData();
 
@@ -32,10 +32,10 @@ class SearchRepoImplementation extends SearchViewRepo {
   }
 
   @override
-  Future<Either<ServerFalure, List<SearchedBookEntity>>> fetchSearchedBooks(
+  Future<Either<ServerFalure, List<BookEntity>>> fetchSearchedBooks(
       String? searchKey,
       {int pageNumber = 0}) async {
-    List<SearchedBookEntity> books;
+    List<BookEntity> books;
     try {
       books = await searchRemoteDataSource.fetchSearchedBooks(searchKey ?? '',
           pageNumber: pageNumber);

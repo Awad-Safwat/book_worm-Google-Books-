@@ -3,7 +3,6 @@ import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/learn_more_button.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/read_now_button.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListItemBody extends StatelessWidget {
@@ -11,7 +10,7 @@ class SearchResultListItemBody extends StatelessWidget {
     super.key,
     required this.book,
   });
-  final SearchedBookEntity book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {

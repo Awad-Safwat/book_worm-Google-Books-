@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_worm/core/errors/faluer.dart';
 import 'package:book_worm/core/utils/functions.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/domain/use_cases/fetch_searched_books_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   final FetchSearchedBooksUseCase fetchSearchedBooksUseCase;
   int pageNumber = 1;
-  List<SearchedBookEntity> fullBooks = [];
+  List<BookEntity> fullBooks = [];
   ScrollController scrollController = ScrollController();
   TextEditingController textEditingController = TextEditingController();
   bool isLoading = false;
@@ -27,7 +27,7 @@ class SearchCubit extends Cubit<SearchState> {
       isLoading = true;
       emit(SearchPaginationLoading());
     }
-    Either<ServerFalure, List<SearchedBookEntity>> books =
+    Either<ServerFalure, List<BookEntity>> books =
         await fetchSearchedBooksUseCase
             .call({'searchKey': searchKey, 'pageNumber': pageNumber});
     books.fold((faluer) {

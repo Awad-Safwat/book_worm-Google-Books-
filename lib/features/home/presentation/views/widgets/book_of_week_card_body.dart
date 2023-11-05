@@ -26,7 +26,7 @@ class BookOfWeekCardBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 8),
             child: BookImage(
-              imageUrl: book.imageUrl!,
+              imageUrl: book.imageUrl ?? '',
             ),
           ),
         ),
@@ -56,7 +56,7 @@ class BookOfWeekCardBody extends StatelessWidget {
               Text(
                 book.bookDiscreption ?? '',
                 overflow: TextOverflow.ellipsis,
-                maxLines: 4,
+                maxLines: 3,
                 style: Styels.textStyle8,
               ),
               const SizedBox(

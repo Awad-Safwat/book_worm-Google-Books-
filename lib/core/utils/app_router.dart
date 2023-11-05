@@ -1,6 +1,7 @@
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/features/auth/presentation/views/signin_view.dart';
 import 'package:book_worm/features/favorites/presentation/views/favorites_view.dart';
+import 'package:book_worm/features/home/presentation/views/widgets/book_web_view.dart';
 import 'package:book_worm/features/main_app_body.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/book_details_view.dart';
@@ -54,15 +55,15 @@ abstract class AppRouter {
         path: AppStrings.kSearchView,
         builder: (context, state) => const SearchView(),
       ),
-      // GoRoute(
-      //     path: AppStrings.kBookWebView,
-      //     builder: (context, state) {
-      //       String bookUrl = state.extra as String;
+      GoRoute(
+          path: AppStrings.kBookWebView,
+          builder: (context, state) {
+            String bookUrl = state.extra as String;
 
-      //       return BookWebView(
-      //         bookUrl: bookUrl,
-      //       );
-      //     }),
+            return BookWebView(
+              bookUrl: bookUrl,
+            );
+          }),
       GoRoute(
         path: AppStrings.kBookDetailsView,
         pageBuilder: (BuildContext context, GoRouterState state) {
@@ -90,7 +91,7 @@ abstract class AppRouter {
       GoRoute(
         path: AppStrings.kSearchedBookDetailsView,
         pageBuilder: (BuildContext context, GoRouterState state) {
-          SearchedBookEntity book = state.extra as SearchedBookEntity;
+          BookEntity book = state.extra as BookEntity;
           return CustomTransitionPage<void>(
             key: state.pageKey,
             child: BookDetailsView(

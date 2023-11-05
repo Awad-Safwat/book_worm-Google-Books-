@@ -1,4 +1,5 @@
 import 'package:book_worm/core/utils/app_strings.dart';
+import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/favorites/presentation/manager/add_delet_favorite_cubit/add_delete_favorite_cubit.dart';
 import 'package:book_worm/features/favorites/presentation/widgets/favorites_listItem.dart';
 import 'package:book_worm/features/home/domain/entities/book_entity.dart';
@@ -20,16 +21,14 @@ class MyBooksListItemsGDetector extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<AddDeleteFavoriteCubit>(context)
-            .checkIsFavoriteBook(book: book);
-        GoRouter.of(context).push(AppStrings.kBookDetailsView, extra: book);
+        // BlocProvider.of<AddDeleteFavoriteCubit>(context)
+        //     .checkIsFavoriteBook(book: book);
+        // GoRouter.of(context).push(AppStrings.kBookDetailsView, extra: book);
+        launchURL(book.bookWebViewUrl ?? '');
       },
       child: Dismissible(
         onDismissed: (DismissDirection direction) {
-          if (direction == DismissDirection.startToEnd) {
-            BlocProvider.of<AddDeleteMyBooksCubit>(context)
-                .deleteFromMyBooks(bookId: book.bookId!);
-          }
+          if (direction == DismissDirection.endToStart) {}
         },
         key: Key(book.bookId!),
         child: MyBooksListItem(

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_worm/core/errors/faluer.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/domain/use_cases/fetch_history_searchd_use_case.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
@@ -14,7 +14,7 @@ class HistoryCubit extends Cubit<HistoryState> {
 
   fecthHistory() async {
     emit(HistoryLoading());
-    Either<ServerFalure, List<SearchedBookEntity>> books =
+    Either<ServerFalure, List<BookEntity>> books =
         await fetchHistoryUseCase.call();
 
     books.fold((Faluer) {

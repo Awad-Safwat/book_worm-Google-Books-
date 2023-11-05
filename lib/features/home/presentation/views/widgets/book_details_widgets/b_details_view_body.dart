@@ -1,4 +1,3 @@
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/about_the_book_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/price_button_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/may_like_section.dart';

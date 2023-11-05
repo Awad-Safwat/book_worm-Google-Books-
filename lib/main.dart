@@ -21,11 +21,11 @@ void main() async {
   Bloc.observer = AppBlocObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  Hive.registerAdapter(SearchedBookEntityAdapter());
+  //Hive.registerAdapter(SearchedBookEntityAdapter());
   Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<BookEntity>(AppStrings.kFeatueredBox);
   await Hive.openBox<BookEntity>(AppStrings.kNewestBox);
-  await Hive.openBox<SearchedBookEntity>(AppStrings.kHistoryBox);
+  await Hive.openBox<BookEntity>(AppStrings.kHistoryBox);
   await Hive.openBox<UserEntity>(AppStrings.kHiUserDataBox);
   await Hive.openBox<bool>(AppStrings.kHiIsLogedBeforeBox);
   await Hive.openBox<String>(AppStrings.kHiFavoritesBox);

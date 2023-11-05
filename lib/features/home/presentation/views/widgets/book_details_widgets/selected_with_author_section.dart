@@ -1,5 +1,4 @@
 import 'package:book_worm/core/utils/app_colors.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/author_data_card.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/selected_book_card.dart';
 import 'package:flutter/material.dart';

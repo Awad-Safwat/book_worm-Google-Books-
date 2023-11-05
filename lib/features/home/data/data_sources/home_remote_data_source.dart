@@ -16,7 +16,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeatueredBooks({int pageNumber = 0}) async {
     var response = await apiService.get(
         endPoint:
-            'volumes?q=history&orderBy=relevance&startIndex=${pageNumber * 10}');
+            'volumes?q=programming&orderBy=relevance&startIndex=${pageNumber * 10}');
 
     List<BookEntity> extractedBooksList = extractingMapDataToList(response);
 
@@ -32,7 +32,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     var response = await apiService.get(
         endPoint:
-            'volumes?q=programming&orderBy=relevance&startIndex=${pageNumber * 10}');
+            'volumes?q=Success النجاح&orderBy=relevance&startIndex=${pageNumber * 10}');
 
     List<BookEntity> extractedBooksList = extractingMapDataToList(response);
 

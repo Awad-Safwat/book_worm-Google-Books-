@@ -1,15 +1,15 @@
 import 'package:book_worm/core/utils/app_strings.dart';
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:hive/hive.dart';
 
 abstract class SearchLocalDataSource {
-  List<SearchedBookEntity> fetchHistoryData();
+  List<BookEntity> fetchHistoryData();
 }
 
 class SearchLocalDataSourceImple extends SearchLocalDataSource {
   @override
-  List<SearchedBookEntity> fetchHistoryData() {
-    Box<SearchedBookEntity> box = Hive.box(AppStrings.kHistoryBox);
+  List<BookEntity> fetchHistoryData() {
+    Box<BookEntity> box = Hive.box<BookEntity>(AppStrings.kHistoryBox);
     var boxValues = box.values.toSet();
     return boxValues.toList();
   }

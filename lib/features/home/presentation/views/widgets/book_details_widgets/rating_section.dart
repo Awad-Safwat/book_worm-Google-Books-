@@ -1,5 +1,4 @@
 import 'package:book_worm/core/utils/font_styels.dart';
-import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -28,7 +27,7 @@ class RatingSection extends StatelessWidget {
           width: 10,
         ),
         Text(
-          (book.rating != null) ? book.rating!.toDouble().toString() : "1.0",
+          (book.rating != null) ? book.rating!.toDouble().toString() : "0.0",
           style: Styels.textStyle10.copyWith(
             fontWeight: FontWeight.bold,
             color: Colors.white,

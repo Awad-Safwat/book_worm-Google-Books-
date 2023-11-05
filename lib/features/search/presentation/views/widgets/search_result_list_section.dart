@@ -1,4 +1,4 @@
-import 'package:book_worm/features/search/domain/entities/searched_book_entity.dart';
+import 'package:book_worm/features/home/domain/entities/book_entity.dart';
 import 'package:book_worm/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:book_worm/features/search/presentation/views/widgets/search_result_list_item.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class SearchResultListSection extends StatelessWidget {
     required this.books,
   });
 
-  final List<SearchedBookEntity> books;
+  final List<BookEntity> books;
 
   @override
   Widget build(BuildContext context) {

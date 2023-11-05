@@ -1,9 +1,7 @@
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/core/utils/functions.dart';
 import 'package:book_worm/features/auth/presentation/manager/sign_in-cubit/sign_in_cubit.dart';
-import 'package:book_worm/features/auth/presentation/views/widgets/user_not_signed_in_view.dart';
 import 'package:book_worm/features/favorites/presentation/manager/add_delet_favorite_cubit/add_delete_favorite_cubit.dart';
-import 'package:book_worm/features/favorites/presentation/manager/favorites_cubit/favorites_cubit.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_details_widgets/rating_section.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/book_image.dart';
 import 'package:flutter/material.dart';

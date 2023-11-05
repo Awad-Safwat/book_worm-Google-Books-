@@ -26,7 +26,7 @@ class MyBooksRemoteDataSourceImple extends MyBooksRemoteDataSource {
   @override
   Future<void> deleteFromMyBooks({required String bookId}) async {
     await apiService.delet(
-        endPoint: 'mylibrary/bookshelves/7/removeVolume',
+        endPoint: 'mylibrary/bookshelves/1/removeVolume',
         accessToken: getAccessToken()!,
         data: {'volumeId': bookId});
   }
@@ -35,7 +35,7 @@ class MyBooksRemoteDataSourceImple extends MyBooksRemoteDataSource {
   Future<List<BookEntity>> getMyBooks({int pageNumber = 0}) async {
     var response = await apiService.get(
       endPoint:
-          'mylibrary/bookshelves/7/volumes?startIndex=${pageNumber * 10}&access_token=${getAccessToken()}',
+          'mylibrary/bookshelves/1/volumes?startIndex=${pageNumber * 10}&access_token=${getAccessToken()}',
     );
 
     List<BookEntity> books = extractingMapDataToList(response);
