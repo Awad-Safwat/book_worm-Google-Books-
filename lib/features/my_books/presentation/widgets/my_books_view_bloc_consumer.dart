@@ -34,7 +34,11 @@ class MyBooksViewBlocConsumer extends StatelessWidget {
             },
           );
         } else if (state is GetMyBooksCubitUserNotSigned) {
-          return const UserNotSignedView();
+          return UserNotSignedView(
+            onPressed: () {
+              BlocProvider.of<GetMyBooksCubit>(context).getMyBooks();
+            },
+          );
         } else {
           return const Center(
             child: CircularProgressIndicator(),
@@ -53,21 +57,17 @@ class MyBooksViewBlocConsumer extends StatelessWidget {
           });
         }
         if (state is GetMyBooksCubitUserNotSigned) {
-          if (context.mounted) {
-            return showSignInDialog(context);
-          }
+          return await showSignInDialog(context);
         }
         if (state is GetMyBooksCubitSuccess) {
           if (context.mounted) {
             BlocProvider.of<GetMyBooksCubit>(context)
                 .getMyBooksScrollControllerSetUp(context);
+            BlocProvider.of<GetMyBooksCubit>(context).pageNumber++;
           }
         }
         if (state is GetMyBooksCubitPaginationfaluer) {
           showToast(state.faluer.massege);
-        }
-        if (state is GetMyBooksCubitSuccess) {
-          BlocProvider.of<GetMyBooksCubit>(context).pageNumber++;
         }
       },
     );

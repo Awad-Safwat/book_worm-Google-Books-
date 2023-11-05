@@ -47,7 +47,7 @@ class FeatueredBooksList extends StatelessWidget {
                   GoRouter.of(context)
                       .push(AppStrings.kBookDetailsView, extra: books[index]);
                 },
-                child: BookImage(imageUrl: books[index].imageUrl!)),
+                child: BookImage(imageUrl: books[index].imageUrl ?? '')),
           );
         },
         itemCount: books.length,

@@ -18,4 +18,7 @@ class AssetsData {
   static const String bookTest = 'assets/images/home_page_view/bookTest.png';
   static const String personImage =
       'assets/images/home_page_view/personImage.png';
+
+  static const String googleLogoImage = 'assets/images/google_logo.png';
+  static const String personUnknown = 'assets/images/person_blank.svg';
 }

@@ -11,6 +11,7 @@ import 'package:book_worm/features/home/presentation/views/home_view.dart';
 import 'package:book_worm/features/home/presentation/views/widgets/home_view_appBar.dart';
 import 'package:book_worm/features/my_books/presentation/view/my_books_view.dart';
 import 'package:book_worm/features/search/presentation/views/search_view.dart';
+import 'package:book_worm/features/user_profile/presentation/manager/cubit/user_profile_cubit.dart';
 import 'package:book_worm/features/user_profile/presentation/view/user_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,6 +85,9 @@ class _MainAppBodyState extends State<MainAppBody> {
                     BlocProvider.of<FavoritesCubit>(context).booklst.clear();
                     BlocProvider.of<FavoritesCubit>(context)
                         .getFavoritesBooks();
+                  }
+                  if (index == 4) {
+                    BlocProvider.of<UserProfileCubit>(context).getUserData();
                   }
                   setState(() {
                     selectedViewindex = index;

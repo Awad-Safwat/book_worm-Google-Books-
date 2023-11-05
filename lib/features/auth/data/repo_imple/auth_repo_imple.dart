@@ -8,8 +8,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepoImpel extends AuthRepo {
   @override
-  void signOut() {
-    AppControllers.googleSignInController.signOut();
+  Future<Either<ServerFalure, void>> signOut() async {
+    try {
+      await AppControllers.googleSignInController.signOut();
+      return right('');
+    } catch (e) {
+      return left(ServerFalure(massege: e.toString()));
+    }
   }
 
   @override

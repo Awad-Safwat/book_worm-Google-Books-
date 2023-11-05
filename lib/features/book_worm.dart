@@ -18,6 +18,8 @@ import 'package:book_worm/features/my_books/data/repos_imple/my_books_repos_impl
 import 'package:book_worm/features/my_books/domain/my_books_use_cases/add_to_my_books_use_case.dart';
 import 'package:book_worm/features/my_books/domain/my_books_use_cases/delete_from_my_books_use_case.dart';
 import 'package:book_worm/features/my_books/presentation/manager/add_delete_my_books_cubit/add_delete_my_books_cubit.dart';
+import 'package:book_worm/features/user_profile/presentation/manager/cubit/user_profile_cubit.dart';
+import 'package:book_worm/features/user_profile/presentation/view/user_profile_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,6 +77,7 @@ class BookWorm extends StatelessWidget {
             ),
           )..fetchNewestBooks(),
         ),
+        BlocProvider(create: (context) => UserProfileCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

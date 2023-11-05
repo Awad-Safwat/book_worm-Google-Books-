@@ -29,8 +29,11 @@ class BookEntity {
   final String? buyLinkUrl;
   @HiveField(11)
   final bool? isEbook;
+  @HiveField(12)
+  final num? ratingCount;
 
   BookEntity({
+    required this.ratingCount,
     required this.isEbook,
     required this.buyLinkUrl,
     required this.bookWebViewUrl,

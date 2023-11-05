@@ -30,6 +30,9 @@ class BookImage extends StatelessWidget {
           color: Colors.grey,
           width: MediaQuery.sizeOf(context).width * .16,
           height: MediaQuery.sizeOf(context).height * .16,
+          child: const Center(
+            child: Text('No Image'),
+          ),
         ),
         fit: BoxFit.fill,
       ),

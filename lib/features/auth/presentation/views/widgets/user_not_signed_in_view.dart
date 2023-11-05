@@ -7,8 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UserNotSignedView extends StatelessWidget {
   const UserNotSignedView({
     super.key,
+    required this.onPressed,
   });
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,9 +17,7 @@ class UserNotSignedView extends StatelessWidget {
         color: AppColors.primaryColor,
         height: 60,
         minWidth: 120,
-        onPressed: () {
-          BlocProvider.of<FavoritesCubit>(context).getFavoritesBooks();
-        },
+        onPressed: onPressed,
         child: const Text(
           'Retry',
           style: Styels.textStyle18,

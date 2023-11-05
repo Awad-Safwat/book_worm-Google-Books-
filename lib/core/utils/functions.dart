@@ -41,6 +41,11 @@ String? getAccessToken() {
   return accessToken;
 }
 
+UserEntity getUserInfo() {
+  var box = Hive.box<UserEntity>(AppStrings.kHiUserDataBox);
+  return box.values.first;
+}
+
 void deletAFavoriteLocal({required String bookId}) {
   var box = Hive.box<String>(AppStrings.kHiFavoritesBox);
   box.delete(bookId);

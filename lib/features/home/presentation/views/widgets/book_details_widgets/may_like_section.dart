@@ -1,4 +1,3 @@
-import 'package:book_worm/core/utils/app_router.dart';
 import 'package:book_worm/core/utils/app_strings.dart';
 import 'package:book_worm/core/utils/font_styels.dart';
 import 'package:book_worm/features/home/presentation/manager/featured_book_cubit/featured_books_cubit.dart';
@@ -46,7 +45,8 @@ class MayAlsoLikeSection extends StatelessWidget {
                     },
                     child: BookImage(
                         imageUrl: featuredBooksList
-                            .featuredBooksLst[index].imageUrl!),
+                                .featuredBooksLst[index].imageUrl ??
+                            ''),
                   ),
                 );
               },

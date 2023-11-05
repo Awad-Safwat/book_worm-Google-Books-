@@ -20,7 +20,7 @@ class NewstListItemBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: BookImage(
-            imageUrl: book.imageUrl!,
+            imageUrl: book.imageUrl ?? '',
           ),
         ),
         ConstrainedBox(
@@ -62,7 +62,7 @@ class NewstListItemBody extends StatelessWidget {
                       color: const Color(0xffF24F09),
                     ),
                   ),
-                  Text(" | " "Based on 23k Reviews",
+                  Text(" | " "Based on ${book.ratingCount ?? '0'} Reviews",
                       style: Styels.textStyle10
                           .copyWith(fontWeight: FontWeight.normal)),
                 ],
