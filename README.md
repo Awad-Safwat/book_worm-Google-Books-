@@ -3,17 +3,17 @@
 
 A a new self study practicing Flutter project , that play with 'google books API service'.
 
-## Getting Started
+## 🏹 Getting Started
 
-### What User can do?
-Note all the (privet) need the user to be signed in with google , (public) doesn't.
-- explore all the books of any feald .
-- Search for any specific Book or Magazine (public) .
-- Read a sample of any book (public).
-- Mark and remark books as favorites  (privet).
-- History of search (public) .
-- Buy any ebook and add to my books (privet).
- ### What is implemented in the Book worm?
+### 💁 What User can do?
+📓 Note all the (privet) need the user to be signed in with google , (public) doesn't.
+-🔍📚 explore all the books of any feald .
+- 🔎📘 Search for any specific Book or Magazine (public) .
+- 📘 Read a sample of any book (public).
+- ❤️ Mark and remark books as favorites  (privet).
+- ⏰ History of search (public) .
+- 💵 Buy any ebook and add to my books (privet).
+ ### 🧰 What is implemented in the Book worm?
   - Responsive And beautiful UI
   - Clean and reusable code.
   - Clean architecture.
@@ -25,7 +25,7 @@ Note all the (privet) need the user to be signed in with google , (public) doesn
   - SOLID Principles .
   - Animation transaction
     
-### Screens of book worm
+### 📱 Screens of book worm
 - Splash , Home , Search , Favorites , My books and Profile screens
 
 ### Book Worm Screens.
